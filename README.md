@@ -1,14 +1,14 @@
-# CampusFlow: College Workflow Improvement and Curriculum Redesign
+# College Workflow Investigation and Curriculum Audit
 
 ## Project Overview
 
-This repository contains two related assignments focused on improving college processes and aligning technical education with practical industry requirements.
+This repository contains two separate assignments completed as part of the Round 2 assessment.
 
-**Task 1 – College Workflow Investigation:** Examines the student clearance process and proposes CampusFlow, a centralized workflow concept designed to improve status tracking, accountability, communication, and exception handling.
+**Task 1 – College Workflow Investigation:** Examines a college process, documents its current workflow and challenges, and proposes an improved process with clear responsibilities, exception handling, test scenarios, and estimated time savings.
 
-**Task 2 – Curriculum Audit and Redesign:** Reviews curriculum structure, compares relevant subjects with industry job requirements, identifies opportunities for improvement, and proposes practical, AI-assisted learning activities.
+**Task 2 – Curriculum Audit and Redesign:** Reviews the applicable academic curriculum, maps courses and credits, compares curriculum skills with industry job requirements, and proposes evidence-based improvements and practical AI-assisted learning activities.
 
-Together, these tasks connect process improvement with curriculum development by turning a college workflow into a proposed practical lab or capstone project.
+Each task has its own objectives, analysis, documentation, and deliverables. A proposed lab or capstone based on the workflow investigated in Task 1 may also be explored as part of Task 2.
 
 ---
 
