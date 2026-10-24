@@ -1,8 +1,8 @@
-# Task 1: HostelClear — Current-State Report
+# Task 1: CampusFlow — Current-State Report
 
 ## 1. Overview
 
-HostelClear is a proposed improvement to the hostel vacating and no-dues clearance process at IFHE Hyderabad. The idea comes from my personal experience of visiting departments individually to collect signatures before vacating the hostel.
+CampusFlow is a proposed improvement to the hostel vacating and no-dues clearance process at IFHE Hyderabad. The idea comes from my personal experience of visiting departments individually to collect signatures before vacating the hostel.
 
 My process took approximately one to two days. This is my personal estimate, not an average measured across students.
 
