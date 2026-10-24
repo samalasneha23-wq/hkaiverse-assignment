@@ -1,155 +1,120 @@
-# Curriculum Audit: B.Tech CSE (Artificial Intelligence and Data Science)
+# Task 2: Curriculum Audit
 
 ## 1. Objective
 
-The objective of this audit is to evaluate how effectively the B.Tech Computer Science and Engineering (Artificial Intelligence and Data Science) curriculum prepares students for current industry requirements.
+The objective of this audit is to examine the curriculum for the selected programme and identify where it can better support current workplace needs. The audit considers foundational knowledge, practical application, AI-assisted learning, data analysis, communication, and real-world problem-solving.
 
-The audit compares existing courses with skills identified in job descriptions related to artificial intelligence, machine learning, data analytics and software-based AI applications. It identifies opportunities to retain important foundations, update outdated or insufficiently practical content, reduce unnecessary duplication, and introduce relevant skills.
+The recommendations are proposals for review. They do not replace the university's approved syllabus, regulations, credit requirements, or faculty decisions.
 
-The aim is to improve industry readiness while preserving essential academic knowledge, programme outcomes and prerequisite relationships.
+## 2. Programme and Source Scope
 
-## 2. Audit Approach
+**Programme:** B.Tech in Artificial Intelligence and Data Science  
+**Institution:** ICFAI Foundation for Higher Education (IFHE), Hyderabad  
+**Student's current semester:** Seventh semester  
+**Audit focus:** Course relevance, practical skills, prerequisites, credits, and opportunities to apply learning to realistic problems.
 
-Each course or learning area is evaluated using four categories:
+The official syllabus and academic regulations for the exact admission batch and curriculum version must be used to validate the final course list and credit totals. A course title alone is not sufficient evidence of its syllabus, assessment pattern, or credit value.
 
-- **KEEP:** Retain courses and topics that provide essential foundations or relevant skills.
-- **UPDATE:** Improve existing content, tools, laboratory work or assessments to reflect current practices.
-- **REDUCE:** Reduce specific topics or duplicated content when syllabus evidence shows limited additional learning value.
-- **ADD:** Introduce relevant topics or practical learning components that are not sufficiently covered by existing courses.
+## 3. Audit Questions
 
-A course is not considered unnecessary merely because it is absent from a small sample of job descriptions. The audit also considers foundational knowledge, prerequisite relationships, practical learning and academic requirements.
+The audit considers the following questions:
 
-## 3. Key Findings
+1. Does each course contribute to the programme's learning outcomes?
+2. Are foundational subjects taught before subjects that depend on them?
+3. Do students have enough opportunities to apply concepts to realistic problems?
+4. Are data analysis, databases, software tools, and communication skills practised?
+5. Are AI tools used with appropriate verification and academic integrity?
+6. Are students assessed on their reasoning and practical work, not only their ability to reproduce theory?
+7. Can proposed improvements fit within the approved total credits and prerequisite structure?
 
-The curriculum includes several subjects relevant to AI and data-related careers, including:
+## 4. Audit Categories
 
-- Computer Programming
-- Database Management Systems
-- Data Science
-- Machine Learning
-- Data Wrangling and Visualization
-- Deep Learning
-- Natural Language Processing
-- Generative AI
-- Cloud Computing
-- Computer Vision
+| Category | What to examine | Decision options |
+|---|---|---|
+| Foundational knowledge | Mathematics, statistics, programming, and computing fundamentals | KEEP or UPDATE |
+| Core AI and data science | Machine learning, data handling, model evaluation, and AI concepts | KEEP or UPDATE |
+| Practical application | Labs, projects, debugging, datasets, and implementation | UPDATE or ADD |
+| Data and business tools | SQL, spreadsheets, dashboards, and data interpretation where relevant | UPDATE or ADD |
+| Responsible AI | Privacy, bias, limitations, verification, and appropriate use of AI tools | UPDATE or ADD |
+| Communication and teamwork | Reporting, presentations, documentation, and collaboration | KEEP or UPDATE |
+| Repetition and workload | Overlapping topics, excessive duplication, or unbalanced assessment | REDUCE or UPDATE |
+| Advanced and emerging topics | Topics justified by learning outcomes and evidence from relevant job descriptions | ADD, subject to prerequisites and credits |
 
-These subjects provide a foundation for technical and analytical roles. However, course titles alone do not establish how much practical experience students receive.
+These categories are an audit framework, not a claim that a particular course currently has a deficiency.
 
-The main improvement opportunity is to strengthen the connection between theoretical concepts and workplace tasks, such as cleaning real datasets, evaluating models, building AI applications, deploying solutions and documenting results.
+## 5. Preliminary Findings and Recommendations
 
-The audit also considers whether overlapping topics across courses could be reduced to create room for more practical learning.
+### Finding 1: Practical application should be visible
 
-## 4. Course-Level Recommendations
+**Recommendation:** Review whether each major technical subject includes practical exercises, realistic examples, or a project that demonstrates its learning outcomes.
 
-| No. | Course or learning area | Decision | Recommendation and reason |
-|---:|---|---|---|
-| 1 | Computer Programming | KEEP | Retain programming fundamentals and strengthen debugging, problem-solving and implementation exercises. Programming supports AI development and data processing. |
-| 2 | Database Management Systems | KEEP / UPDATE | Retain database fundamentals and strengthen practical SQL exercises involving joins, aggregations, subqueries and data-quality checks. |
-| 3 | Data Science | UPDATE | Include complete analytical workflows covering data cleaning, exploratory analysis, interpretation and communication of findings. |
-| 4 | Machine Learning | UPDATE | Include model comparison, suitable evaluation measures, overfitting checks, error analysis and validation using realistic datasets. |
-| 5 | Data Wrangling and Visualization | KEEP | Retain data preparation and visualisation fundamentals, using realistic datasets and decision-oriented reports. |
-| 6 | Deep Learning | UPDATE | Strengthen practical model development, validation, error analysis and application-based assignments. |
-| 7 | Natural Language Processing | UPDATE | Include practical text-processing tasks and exercises evaluating modern language-model applications. |
-| 8 | Generative AI | UPDATE | Include embeddings, retrieval-augmented generation (RAG), response evaluation, hallucination checks and responsible AI use. |
-| 9 | Cloud Computing | UPDATE | Add hands-on deployment, basic access control, application monitoring and troubleshooting exercises. |
-| 10 | Computer Vision | KEEP | Retain image-processing and computer-vision fundamentals, supported by model testing and performance analysis. |
-| 11 | Software Engineering and project work | UPDATE | Strengthen Git-based collaboration, testing, documentation, reproducibility and project reviews. |
-| 12 | Overlapping topics across courses | REDUCE, if confirmed | Compare detailed syllabi and reduce unnecessary repetition where the same learning outcomes are already adequately covered elsewhere. |
-| 13 | Topics with limited relevance to programme outcomes | REDUCE, if justified | Review individual units for relevance, depth and learning value. Reduce selected content only when evidence supports the decision and essential foundations remain intact. |
-| 14 | Integrated industry-oriented projects | ADD | Introduce or strengthen projects combining data preparation, programming, analysis, testing and presentation of results. |
-| 15 | AI application evaluation and deployment | ADD or integrate | Add practical exercises for testing AI outputs, evaluating reliability, using APIs and deploying small applications where these skills are not adequately covered. |
+**Reason:** Practical evidence helps students explain how they applied a concept, what results they obtained, and what limitations they encountered.
 
-These recommendations are proposals for further curriculum review. Final decisions should be based on detailed syllabi, laboratory work, course overlap and academic requirements.
+**Evidence needed:** Official course outcomes, laboratory syllabi, assessment rubrics, and existing project requirements.
 
-## 5. Evidence Supporting the Recommendations
+### Finding 2: Data interpretation should accompany technical implementation
 
-### 5.1 Curriculum evidence
+**Recommendation:** Where appropriate, combine technical exercises with data cleaning, result interpretation, visualisation, and clear reporting.
 
-The listed programme subjects provide a foundation in programming, databases, data science, machine learning and specialised AI areas. The detailed syllabus and laboratory exercises should be examined to determine the actual depth of coverage.
+**Reason:** Producing a model or query is only part of solving a problem; students should also explain the meaning and limitations of the output.
 
-### 5.2 Job-market evidence
+**Evidence needed:** Course outcomes and assessment tasks for relevant subjects.
 
-The reviewed job descriptions identify skills such as Python, SQL, Git, machine-learning evaluation, data processing, cloud technologies and modern AI application development.
+### Finding 3: AI-assisted learning needs verification
 
-These requirements support recommendations to strengthen practical implementation and evaluation. They do not, by themselves, prove that any existing course is unnecessary.
+**Recommendation:** Include guided exercises in which students use an AI assistant, check its output independently, identify errors or unsupported claims, and document their corrections.
 
-### 5.3 Evidence needed before reducing content
+**Reason:** AI-generated answers may contain mistakes and should not be accepted without review.
 
-Before a REDUCE recommendation is finalised, the review should identify:
+**Evidence needed:** Existing AI-related course outcomes, assessment policies, and proposed exercise rubrics.
 
-1. The specific unit or topic proposed for reduction.
-2. The relevant syllabus sections and learning outcomes.
-3. Any duplication with another course.
-4. The effect on prerequisites and later subjects.
-5. The practical learning opportunity created by the reduction.
-6. Any programme, accreditation or regulatory constraints.
+### Finding 4: Prerequisites should be checked
 
-This approach ensures that reductions are based on evidence rather than personal preference.
+**Recommendation:** Map dependencies among mathematics, programming, databases, statistics, and advanced AI subjects before changing the sequence.
 
-## 6. Proposed Practical Improvements
+**Reason:** Advanced work is more effective when students have already learned the concepts it depends on.
 
-### 6.1 Integrated data analytics project
+**Evidence needed:** Official prerequisite rules and course descriptions.
 
-Students should work with a realistic dataset, clean records, write SQL queries, conduct exploratory analysis, create a dashboard and explain their findings. They should document missing values, duplicates and assumptions.
+### Finding 5: Projects can connect academic learning with operational problems
 
-### 6.2 Machine-learning evaluation exercise
+**Recommendation:** Consider a supervised project in which students map a real or simulated workflow, identify bottlenecks, define measures, test an improvement, and report limitations.
 
-Students should compare appropriate models using a defined dataset, select suitable evaluation measures and explain errors and limitations rather than reporting only the best result.
+**Reason:** This approach connects technical skills with process understanding, evidence-based decisions, and communication.
 
-### 6.3 Generative AI mini-project
+**Evidence needed:** Project rules, faculty guidance, and confirmation that the proposed activity fits programme requirements.
 
-Students should build a small document-question-answering application using retrieval and a language model. The project should test source-grounded answers, missing information, unsupported responses and output reliability.
+## 6. Job-Market Evidence
 
-### 6.4 Application deployment exercise
+The curriculum should also be compared with at least three real, dated job descriptions relevant to AI, data, or analytics work. The separate job-market comparison should record each job title, employer, location, publication or access date, source URL, and the skills explicitly requested.
 
-Students should deploy a small data or AI application, document its requirements, test normal and failure cases, and explain basic security and maintenance considerations.
+A skill should not be described as universally required merely because it appears in one advertisement. Recommendations should be based on recurring requirements across the reviewed descriptions and their relevance to the programme's learning outcomes.
 
-### 6.5 Collaborative project workflow
+## 7. KEEP, UPDATE, REDUCE, and ADD Rules
 
-Students should use version control, divide tasks, review changes, document decisions and provide instructions for reproducing their results.
+- **KEEP:** Retain a course or topic when it supports required foundations, programme outcomes, prerequisites, or valuable specialist knowledge.
+- **UPDATE:** Improve practical work, examples, tools, assessment, or content without unnecessarily removing essential foundations.
+- **REDUCE:** Reduce demonstrably repetitive content or low-value duplication only after checking course outcomes and regulatory requirements.
+- **ADD:** Introduce a justified learning component when evidence identifies a gap and prerequisites, faculty capacity, and credit constraints permit it.
 
-These activities could be introduced through existing courses where appropriate, rather than automatically requiring additional courses or credits.
+The audit should explain the reason for every decision. It should not recommend removing a subject solely because it appears difficult or is not named in a small sample of job advertisements.
 
-## 7. Credit and Curriculum Constraints
+## 8. Credit and Regulatory Constraints
 
-The redesign will target changes affecting approximately 20–25% of total programme credits, as required by the assignment.
+Any curriculum redesign must preserve the official total credits unless the institution formally approves a change. It must also respect compulsory courses, required laboratories, prerequisites, programme outcomes, and university regulations.
 
-The proposal will distinguish between:
+The proposed credit changes should be calculated using the verified official credit map. The proportion of affected credits should be calculated as:
 
-- Updating course content without changing credits.
-- Improving practical or laboratory learning.
-- Reallocating credits between existing learning areas.
-- Introducing new course components that require credit allocation.
-- Reducing credits only where duplication or limited learning value is demonstrated.
+**Percentage of programme credits affected = affected credits ÷ official total programme credits × 100**
 
-The total programme credits will be calculated using the complete applicable curriculum, including the academic semester and internship semester. Prerequisites, required learning outcomes and applicable academic regulations must be preserved.
-
-The 20–25% target will be demonstrated through an explicit calculation in the redesign proposal rather than through an unsupported estimate.
-
-## 8. Expected Outcomes
-
-The proposed changes aim to help students:
-
-1. Apply programming and database skills to realistic problems.
-2. Prepare, analyse and communicate data effectively.
-3. Evaluate machine-learning models using appropriate evidence.
-4. Develop and test modern AI applications.
-5. Understand basic deployment and maintenance workflows.
-6. Collaborate through version control and clear documentation.
-7. Explain assumptions, limitations and responsible AI practices.
-8. Connect academic learning with practical workplace tasks.
+Courses whose content, learning outcomes, or credit allocation changes should be counted consistently. The same credit must not be counted twice simply because a course has several proposed improvements.
 
 ## 9. Limitations
 
-The job-market comparison uses a limited sample of job descriptions and does not represent every employer or role. Some postings may describe experience beyond the expectations of a fresher.
+This audit framework does not by itself establish that a specific course is outdated, duplicated, or ineffective. Those conclusions require the relevant official syllabus, regulations, course outcomes, and supporting evidence.
 
-The audit also requires detailed syllabus-level comparison to confirm duplication and identify content that may have limited relevance. Therefore, the proposed reductions are conditional recommendations, not claims that particular courses have no academic value.
-
-Any formal curriculum change would require review and approval through the appropriate academic process.
+The recommendations are preliminary until the exact programme version, course-credit map, job-market comparison, and any available faculty or graduate feedback have been checked. No faculty endorsement or formal curriculum approval is claimed.
 
 ## 10. Conclusion
 
-The curriculum contains several useful foundations for AI and data-related careers. The audit recommends retaining essential subjects, updating selected topics to strengthen practical industry alignment, reducing demonstrably duplicated content and adding relevant hands-on learning where gaps exist.
-
-The proposed redesign prioritises evidence-based decisions, practical skill development and balanced credit allocation. Its final recommendations will be supported by syllabus analysis, job-market evidence, prerequisite checks and a transparent credit calculation.
+A useful curriculum audit should preserve strong foundations while identifying evidence-supported opportunities to improve practical application, data interpretation, responsible AI use, and real-world problem-solving. Any final redesign should connect each recommendation to the official syllabus, credible job-market evidence, programme outcomes, and verified credit constraints.
