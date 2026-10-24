@@ -1,99 +1,146 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CampusFlow | Curriculum Comparison Tool</title>
+<title>HostelClear | Curriculum Comparison Tool</title>
 <style>
 :root {
-  --navy: #183153;
-  --blue: #3267b2;
-  --bg: #f4f7fb;
-  --border: #dce4ef;
-  --text: #243247;
-  --muted: #68778b;
+  --navy:#183153;
+  --blue:#3267b2;
+  --bg:#f4f7fb;
+  --border:#dce4ef;
+  --text:#243247;
+  --muted:#68778b;
+  --green:#18794e;
+  --amber:#946200;
 }
-* { box-sizing: border-box; }
+* { box-sizing:border-box; }
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.5;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
 }
 header {
-  background: linear-gradient(120deg, #183153, #3267b2);
-  color: white;
-  padding: 30px 22px;
+  background:linear-gradient(120deg,#183153,#3267b2);
+  color:white;
+  padding:28px 22px;
 }
-header h1 { margin: 0 0 7px; font-size: 27px; }
-header p { margin: 0; color: #e1eaf8; }
-main { max-width: 1100px; margin: 25px auto; padding: 0 16px 35px; }
+header h1 { margin:0 0 8px; font-size:27px; }
+header p { margin:0; color:#e1eaf8; }
+main { max-width:1150px; margin:24px auto; padding:0 16px 35px; }
 .panel {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  margin-bottom: 18px;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  margin-bottom:18px;
 }
-h2 { color: var(--navy); font-size: 19px; margin-top: 0; }
+h2 { color:var(--navy); font-size:19px; margin-top:0; }
 .controls {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
 }
-label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; }
-input, select {
-  width: 100%; padding: 10px; border: 1px solid #cbd5e1;
-  border-radius: 7px; background: white; color: var(--text);
+label { display:block; font-size:13px; font-weight:bold; margin-bottom:5px; }
+input,select {
+  width:100%;
+  padding:10px;
+  border:1px solid #cbd5e1;
+  border-radius:7px;
+  background:white;
+  color:var(--text);
 }
 .cards {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px; margin-bottom: 18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+  margin-bottom:18px;
 }
 .metric {
-  background: white; padding: 17px; border: 1px solid var(--border);
-  border-radius: 10px;
+  background:white;
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:10px;
 }
-.metric span { color: var(--muted); font-size: 13px; display: block; }
-.metric strong { font-size: 25px; color: var(--navy); }
-.table-wrap { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; font-size: 14px; }
-th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--border); }
-th { background: #edf3fb; color: var(--navy); }
+.metric span { color:var(--muted); font-size:13px; display:block; }
+.metric strong { font-size:25px; color:var(--navy); }
+.table-wrap { overflow-x:auto; }
+table { border-collapse:collapse; width:100%; font-size:14px; }
+th,td {
+  text-align:left;
+  padding:10px;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+}
+th { background:#edf3fb; color:var(--navy); }
 .status {
-  display: inline-block; padding: 3px 8px; border-radius: 20px;
-  background: #e8efff; color: #234e91; font-size: 12px; font-weight: bold;
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:20px;
+  background:#e8efff;
+  color:#234e91;
+  font-size:12px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+.status.proposed { background:#fff2cc; color:#805b00; }
+.note { color:var(--muted); font-size:13px; }
+.warning {
+  background:#fff8e6;
+  border:1px solid #f1d58a;
+  border-radius:8px;
+  padding:12px;
+  font-size:13px;
+  margin-bottom:16px;
 }
 button {
-  background: var(--blue); color: white; border: 0; border-radius: 7px;
-  padding: 10px 14px; cursor: pointer; font-weight: bold;
+  background:var(--blue);
+  color:white;
+  border:0;
+  border-radius:7px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:bold;
 }
-button.secondary { background: #e8edf5; color: var(--navy); }
-button:hover { opacity: .9; }
-.actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 15px; }
-.note { color: var(--muted); font-size: 13px; }
-footer { text-align: center; color: var(--muted); padding: 20px; font-size: 13px; }
-@media (max-width: 600px) {
-  header h1 { font-size: 22px; }
-  .panel { padding: 14px; }
+button.secondary { background:#e8edf5; color:var(--navy); }
+button:hover { opacity:.9; }
+button:focus,input:focus,select:focus {
+  outline:2px solid #3267b2;
+  outline-offset:2px;
+}
+.actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:15px; }
+.result { font-weight:bold; color:var(--navy); }
+footer { text-align:center; color:var(--muted); padding:20px; font-size:13px; }
+@media(max-width:600px) {
+  header h1 { font-size:22px; }
+  .panel { padding:14px; }
 }
 </style>
 </head>
 <body>
 <header>
   <h1>Curriculum Comparison Tool</h1>
-  <p>Explore course recommendations, compare credits, and model proposed changes.</p>
+  <p>Compare course recommendations, explore semester credits, and estimate the scale of proposed curriculum changes.</p>
 </header>
 
 <main>
+  <section class="panel">
+    <h2>Before using the results</h2>
+    <div class="warning">
+      The course records below are taken from the course map in this assignment repository. They are draft records, not independently verified official curriculum data. Course codes and credits must be checked against the official syllabus and regulations for the applicable admission batch before decisions are finalised. Repeated codes and inconsistent entries in the draft map should be resolved using that source.
+    </div>
+    <p class="note">KEEP, UPDATE, REDUCE and ADD are curriculum-audit recommendations, not official university decisions. Proposed courses are displayed separately from existing courses.</p>
+  </section>
+
   <section class="panel">
     <h2>Course Filters</h2>
     <div class="controls">
       <div>
         <label for="search">Search course</label>
-        <input id="search" placeholder="Enter course name or code">
+        <input id="search" type="search" placeholder="Enter course name or code">
       </div>
       <div>
         <label for="semester">Semester</label>
@@ -113,179 +160,333 @@ footer { text-align: center; color: var(--muted); padding: 20px; font-size: 13px
         <label for="category">Recommendation</label>
         <select id="category">
           <option value="all">All recommendations</option>
-          <option value="KEEP">Keep</option>
-          <option value="UPDATE">Update</option>
-          <option value="REDUCE">Reduce</option>
-          <option value="ADD">Add</option>
+          <option value="KEEP">KEEP</option>
+          <option value="UPDATE">UPDATE</option>
+          <option value="REDUCE">REDUCE</option>
+          <option value="ADD">ADD</option>
+        </select>
+      </div>
+      <div>
+        <label for="recordType">Record type</label>
+        <select id="recordType">
+          <option value="all">Existing and proposed</option>
+          <option value="Existing">Existing course-map entry</option>
+          <option value="Proposed">Proposed course</option>
         </select>
       </div>
     </div>
   </section>
 
-  <section class="cards">
-    <div class="metric"><span>Displayed courses</span><strong id="count">0</strong></div>
-    <div class="metric"><span>Displayed credits</span><strong id="credits">0</strong></div>
-    <div class="metric"><span>Selected courses</span><strong id="selectedCount">0</strong></div>
-    <div class="metric"><span>Selected credits</span><strong id="selectedCredits">0</strong></div>
+  <section class="cards" aria-live="polite">
+    <div class="metric"><span>Displayed records</span><strong id="count">0</strong></div>
+    <div class="metric"><span>Displayed existing-course credits</span><strong id="credits">0</strong></div>
+    <div class="metric"><span>Selected records</span><strong id="selectedCount">0</strong></div>
+    <div class="metric"><span>Selected existing-course credits</span><strong id="selectedCredits">0</strong></div>
   </section>
 
   <section class="panel">
     <h2>Course Comparison</h2>
-    <p class="note">The initial records below are examples to demonstrate the tool. Replace them with verified courses, credits, and recommendations from your applicable programme curriculum before submission.</p>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Select</th><th>Semester</th><th>Course</th><th>Credits</th><th>Recommendation</th><th>Rationale</th>
+            <th>Select</th>
+            <th>Semester</th>
+            <th>Course code</th>
+            <th>Course name</th>
+            <th>Credits</th>
+            <th>Recommendation</th>
+            <th>Record type</th>
+            <th>Rationale</th>
           </tr>
         </thead>
         <tbody id="courseRows"></tbody>
       </table>
     </div>
+    <p id="emptyMessage" class="note" hidden>No courses match these filters.</p>
     <div class="actions">
       <button id="selectVisible">Select visible</button>
-      <button class="secondary" id="clearSelected">Clear selection</button>
-      <button class="secondary" id="exportCsv">Export visible CSV</button>
+      <button id="clearSelected" class="secondary">Clear selection</button>
+      <button id="exportCsv" class="secondary">Export visible CSV</button>
     </div>
   </section>
 
   <section class="panel">
     <h2>Proposed Credit Calculator</h2>
+    <p>Enter the official total credits for the applicable programme and the unique number of credits affected by the redesign. Do not use the displayed course subtotal as the official programme total.</p>
     <div class="controls">
       <div>
-        <label for="totalCredits">Verified current programme credits</label>
-        <input id="totalCredits" type="number" min="1" placeholder="Enter official total">
+        <label for="totalCredits">Official total programme credits</label>
+        <input id="totalCredits" type="number" min="1" step="any" placeholder="Enter verified total">
       </div>
       <div>
-        <label for="changedCredits">Credits affected by proposed changes</label>
-        <input id="changedCredits" type="number" min="0" value="0">
+        <label for="changedCredits">Unique credits affected by redesign</label>
+        <input id="changedCredits" type="number" min="0" step="any" placeholder="Enter affected credits">
       </div>
     </div>
-    <p><strong>Percentage of programme credits affected:</strong> <span id="percentage">Enter the official total to calculate.</span></p>
-    <p class="note">Count each affected credit only once. Updates that do not change credit allocation should be distinguished from credits added, removed, or reallocated. Confirm that the total remains balanced and meets applicable regulations.</p>
+    <p><strong>Percentage of programme credits affected:</strong> <span id="percentage" class="result">Enter both values.</span></p>
+    <p><strong>Target range (20–25%):</strong> <span id="targetStatus">Not calculated.</span></p>
+    <p class="note">Count each affected credit only once. Explain whether credits are updated, reduced, added or reallocated. An update to course content without a credit change should not automatically be counted as an affected credit. Check that proposed changes preserve the required total and comply with university regulations.</p>
+  </section>
+
+  <section class="panel">
+    <h2>How to interpret this tool</h2>
+    <ul>
+      <li>Use the filters to find courses by name, code, semester or recommendation.</li>
+      <li>Select courses to view their combined record count and existing-course credit subtotal.</li>
+      <li>Export the currently visible records to CSV for further review.</li>
+      <li>Use the calculator to test a redesign percentage after verifying the official programme total and affected credits.</li>
+      <li>Review every proposed recommendation with curriculum evidence and relevant academic approval requirements before implementation.</li>
+    </ul>
   </section>
 </main>
 
-<footer>CampusFlow | Curriculum Audit and Redesign</footer>
+<footer>Curriculum Comparison and Redesign Tool | HKAIverse Round 2 Assignment</footer>
 
 <script>
 const courses = [
-  {id:1, semester:3, code:"CS206", name:"Database Management Systems", credits:4, decision:"UPDATE", rationale:"Add practical SQL querying, data quality checks, and database design exercises."},
-  {id:2, semester:4, code:"DS203", name:"Data Science", credits:3, decision:"KEEP", rationale:"Supports data analysis, interpretation, and evidence-based decisions."},
-  {id:3, semester:5, code:"DS305", name:"Data Wrangling and Visualization", credits:3, decision:"UPDATE", rationale:"Include realistic data cleaning, dashboard design, and clear communication of findings."},
-  {id:4, semester:5, code:"DS310", name:"Predictive Analytics", credits:3, decision:"UPDATE", rationale:"Emphasise evaluation, validation, and explaining model limitations."},
-  {id:5, semester:6, code:"DS307", name:"Big Data Systems", credits:3, decision:"KEEP", rationale:"Provides foundations for working with larger datasets and data-processing pipelines."},
-  {id:6, semester:7, code:"DS306", name:"Deep Learning", credits:4, decision:"UPDATE", rationale:"Add reproducible experiments, evaluation, and responsible model use."},
-  {id:7, semester:7, code:"DS311", name:"Natural Language Processing", credits:3, decision:"UPDATE", rationale:"Include language-model evaluation, error analysis, and application limitations."},
-  {id:8, semester:7, code:"DS401", name:"Human Computer Interaction", credits:3, decision:"KEEP", rationale:"Supports usability, user research, accessibility, and interface evaluation."},
-  {id:9, semester:7, code:"DS408", name:"Generative AI", credits:3, decision:"UPDATE", rationale:"Include retrieval-based applications, output verification, and data privacy."},
-  {id:10, semester:8, code:"PROPOSED", name:"Applied Analytics and Dashboard Lab", credits:0, decision:"ADD", rationale:"Proposed practical lab; credit allocation requires curriculum and regulation review."}
+  {id:1,semester:1,code:"CH102",name:"Environmental Sciences",credits:2,decision:"KEEP",type:"Existing",rationale:"Retain environmental awareness as part of the foundation curriculum."},
+  {id:2,semester:1,code:"CHY101",name:"Chemistry",credits:4,decision:"KEEP",type:"Existing",rationale:"Retain the foundation subject pending review of programme requirements."},
+  {id:3,semester:1,code:"CS101",name:"Computer Programming",credits:4,decision:"UPDATE",type:"Existing",rationale:"Include structured programming practice, testing and debugging."},
+  {id:4,semester:1,code:"EC101",name:"Basic Electronics",credits:4,decision:"KEEP",type:"Existing",rationale:"Retain foundational engineering knowledge, subject to official-map verification."},
+  {id:5,semester:1,code:"EG101",name:"English Language Skills",credits:3,decision:"UPDATE",type:"Existing",rationale:"Add concise technical writing and evidence-based communication activities."},
+  {id:6,semester:1,code:"HS101",name:"Essence of Indian Traditional Knowledge",credits:0,decision:"KEEP",type:"Existing",rationale:"Retain as listed in the draft course map; verify the official credit treatment."},
+  {id:7,semester:1,code:"MA101",name:"Linear Algebra and Ordinary Differential Equations",credits:3,decision:"KEEP",type:"Existing",rationale:"Provides mathematical foundations relevant to AI and data science."},
+  {id:8,semester:1,code:"MT101",name:"Digital Fabrication",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain practical engineering learning subject to programme review."},
+  {id:9,semester:1,code:"MT102",name:"Engineering Graphics",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain foundational engineering skills, subject to official-map verification."},
+  {id:10,semester:1,code:"PHY101",name:"Physics",credits:5,decision:"KEEP",type:"Existing",rationale:"Retain the foundational science course pending programme review."},
+
+  {id:11,semester:2,code:"CH101",name:"Chemistry",credits:4,decision:"KEEP",type:"Existing",rationale:"Verify the course code and semester against the official curriculum."},
+  {id:12,semester:2,code:"CS102",name:"Data Structures",credits:4,decision:"UPDATE",type:"Existing",rationale:"Include practical exercises on data structures, complexity and implementation."},
+  {id:13,semester:2,code:"TA127",name:"Computer Programming II",credits:3,decision:"UPDATE",type:"Existing",rationale:"Strengthen programming practice and systematic debugging."},
+  {id:14,semester:2,code:"DS101",name:"Introduction to AI and DS",credits:3,decision:"KEEP",type:"Existing",rationale:"Provides an introduction to AI and data science concepts."},
+  {id:15,semester:2,code:"EG102",name:"Professional Communication",credits:3,decision:"UPDATE",type:"Existing",rationale:"Practise presenting technical findings to different audiences."},
+  {id:16,semester:2,code:"MA102",name:"Higher Calculus",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain mathematical foundations required for later technical subjects."},
+  {id:17,semester:2,code:"PH101",name:"Physics",credits:5,decision:"KEEP",type:"Existing",rationale:"Verify the course code and semester against the official curriculum."},
+
+  {id:18,semester:3,code:"CS201",name:"Object Oriented Programming Concepts",credits:4,decision:"UPDATE",type:"Existing",rationale:"Add maintainable code design, debugging and unit-testing exercises."},
+  {id:19,semester:3,code:"CS202",name:"Theory of Computation",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain theoretical foundations for computing."},
+  {id:20,semester:3,code:"CS203",name:"Design and Analysis of Algorithms",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain algorithmic reasoning and complexity analysis."},
+  {id:21,semester:3,code:"CS205",name:"Computer Organization and Architecture",credits:3,decision:"KEEP",type:"Existing",rationale:"Verify this code and course name against the official curriculum."},
+  {id:22,semester:3,code:"CS206",name:"Database Management Systems",credits:4,decision:"UPDATE",type:"Existing",rationale:"Add SQL querying, data-quality checks and database design exercises."},
+  {id:23,semester:3,code:"DS201",name:"Artificial Intelligence",credits:3,decision:"UPDATE",type:"Existing",rationale:"Include evaluation of AI outputs, limitations and responsible use."},
+  {id:24,semester:3,code:"MA201",name:"Integral Transforms and Probability & Statistics",credits:3,decision:"KEEP",type:"Existing",rationale:"Supports quantitative analysis and statistical reasoning."},
+  {id:25,semester:3,code:"MA202",name:"Discrete Mathematics",credits:3,decision:"KEEP",type:"Existing",rationale:"Supports logical reasoning and computer science foundations."},
+  {id:26,semester:3,code:"ML201",name:"Mathematical Essentials for Machine Learning",credits:3,decision:"KEEP",type:"Existing",rationale:"Supports the mathematical foundations of machine learning."},
+
+  {id:27,semester:4,code:"CS204",name:"Computer Organization and Architecture",credits:3,decision:"KEEP",type:"Existing",rationale:"Verify the course code and course title against the official curriculum."},
+  {id:28,semester:4,code:"CS205",name:"Web-Enabled Technologies",credits:4,decision:"UPDATE",type:"Existing",rationale:"Add secure application design and practical integration tasks."},
+  {id:29,semester:4,code:"CS302",name:"Operating Systems",credits:4,decision:"KEEP",type:"Existing",rationale:"Retain operating-system concepts and practical understanding."},
+  {id:30,semester:4,code:"IT201",name:"Object Oriented Analysis & Design",credits:3,decision:"UPDATE",type:"Existing",rationale:"Include requirements, design diagrams and practical case studies."},
+  {id:31,semester:4,code:"DS203",name:"Data Science",credits:3,decision:"UPDATE",type:"Existing",rationale:"Include a complete data-analysis workflow and interpretation of findings."},
+  {id:32,semester:4,code:"DS301",name:"Soft Computing",credits:3,decision:"KEEP",type:"Existing",rationale:"Review overlap with related AI and machine-learning content."},
+  {id:33,semester:4,code:"DS304",name:"Machine Learning",credits:3,decision:"UPDATE",type:"Existing",rationale:"Strengthen model evaluation, validation and explanation of limitations."},
+
+  {id:34,semester:5,code:"CS301",name:"Principle of Cryptography",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain security foundations relevant to responsible data handling."},
+  {id:35,semester:5,code:"CS303",name:"Programming Language and Compiler Construction",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain core programming-language concepts."},
+  {id:36,semester:5,code:"CS304",name:"Software Engineering",credits:3,decision:"UPDATE",type:"Existing",rationale:"Add collaborative workflows, testing and maintainability."},
+  {id:37,semester:5,code:"CS306",name:"Computer Networks",credits:4,decision:"KEEP",type:"Existing",rationale:"Retain networking foundations."},
+  {id:38,semester:5,code:"CS415",name:"Ethical Hacking",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain security learning subject to programme requirements."},
+  {id:39,semester:5,code:"DS303",name:"Blockchain Technology",credits:3,decision:"REDUCE",type:"Existing",rationale:"Review overlap and the available space for programme-priority practical skills before recommending any reduction."},
+  {id:40,semester:5,code:"DS305",name:"Data Wrangling and Visualization",credits:3,decision:"UPDATE",type:"Existing",rationale:"Include realistic data cleaning, dashboard design and communication of findings."},
+  {id:41,semester:5,code:"DS306",name:"Deep Learning",credits:4,decision:"UPDATE",type:"Existing",rationale:"Add reproducible experiments and model evaluation."},
+  {id:42,semester:5,code:"DS310",name:"Predictive Analytics",credits:3,decision:"UPDATE",type:"Existing",rationale:"Emphasise validation, error analysis and explaining predictions."},
+
+  {id:43,semester:6,code:"CS305",name:"Computer Vision",credits:3,decision:"UPDATE",type:"Existing",rationale:"Include practical evaluation and discussion of dataset limitations."},
+  {id:44,semester:6,code:"CS307",name:"Cloud Computing",credits:4,decision:"UPDATE",type:"Existing",rationale:"Include deployment concepts, access controls and cost awareness."},
+  {id:45,semester:6,code:"DS306",name:"Deep Learning",credits:3,decision:"UPDATE",type:"Existing",rationale:"Verify the course code, credit value and placement against the official curriculum."},
+  {id:46,semester:6,code:"DS307",name:"Big Data Systems",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain foundations for large-scale data processing."},
+  {id:47,semester:6,code:"EC308",name:"Embedded Systems",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain practical systems knowledge, subject to programme requirements."},
+  {id:48,semester:6,code:"ML302",name:"Fuzzy and Rough Set Theory",credits:3,decision:"KEEP",type:"Existing",rationale:"Review the course's role in the programme's specialised learning outcomes."},
+  {id:49,semester:6,code:"ML303",name:"Reinforcement Learning",credits:3,decision:"UPDATE",type:"Existing",rationale:"Add practical evaluation and discussion of limitations."},
+  {id:50,semester:6,code:"MT310",name:"Autonomous Vehicles",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain applied learning subject to programme priorities."},
+
+  {id:51,semester:7,code:"CS413",name:"Quantum Computing",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain specialised learning subject to programme goals."},
+  {id:52,semester:7,code:"CS415",name:"Ethical Hacking",credits:3,decision:"KEEP",type:"Existing",rationale:"Verify whether this is a separate offering or a repeated map entry."},
+  {id:53,semester:7,code:"DS306",name:"Deep Learning",credits:4,decision:"UPDATE",type:"Existing",rationale:"Verify course placement and credits against the official curriculum."},
+  {id:54,semester:7,code:"DS311",name:"Natural Language Processing",credits:3,decision:"UPDATE",type:"Existing",rationale:"Include language-model evaluation, error analysis and application limitations."},
+  {id:55,semester:7,code:"DS401",name:"Human Computer Interaction",credits:3,decision:"KEEP",type:"Existing",rationale:"Retain usability, accessibility and interface evaluation."},
+  {id:56,semester:7,code:"DS408",name:"Generative AI",credits:3,decision:"UPDATE",type:"Existing",rationale:"Include output verification, retrieval-based applications and data privacy."},
+
+  {id:57,semester:8,code:"PROPOSED",name:"Applied Analytics and Dashboard Lab",credits:null,decision:"ADD",type:"Proposed",rationale:"Proposed applied lab using a real workflow, evidence-based measures and dashboard reporting. Credit allocation requires academic approval."}
 ];
 
 const selected = new Set();
-const tbody = document.getElementById("courseRows");
 const el = id => document.getElementById(id);
+const tbody = el("courseRows");
 
 function visibleCourses() {
-  const q = el("search").value.toLowerCase().trim();
-  const sem = el("semester").value;
+  const query = el("search").value.toLowerCase().trim();
+  const semester = el("semester").value;
   const decision = el("category").value;
-  return courses.filter(c =>
-    (sem === "all" || String(c.semester) === sem) &&
-    (decision === "all" || c.decision === decision) &&
-    (!q || (c.name + " " + c.code).toLowerCase().includes(q))
+  const type = el("recordType").value;
+
+  return courses.filter(course =>
+    (semester === "all" || String(course.semester) === semester) &&
+    (decision === "all" || course.decision === decision) &&
+    (type === "all" || course.type === type) &&
+    (!query || (course.name + " " + course.code).toLowerCase().includes(query))
   );
 }
 
 function render() {
   const rows = visibleCourses();
-  tbody.innerHTML = "";
-  rows.forEach(c => {
+  tbody.replaceChildren();
+
+  rows.forEach(course => {
     const tr = document.createElement("tr");
-    const tdCheck = document.createElement("td");
-    const check = document.createElement("input");
-    check.type = "checkbox";
-    check.checked = selected.has(c.id);
-    check.setAttribute("aria-label", "Select " + c.name);
-    check.style.width = "auto";
-    check.addEventListener("change", () => {
-      check.checked ? selected.add(c.id) : selected.delete(c.id);
+
+    const selectCell = document.createElement("td");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = selected.has(course.id);
+    checkbox.style.width = "auto";
+    checkbox.setAttribute("aria-label", "Select " + course.name);
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) selected.add(course.id);
+      else selected.delete(course.id);
       updateMetrics();
     });
-    tdCheck.appendChild(check);
-    tr.appendChild(tdCheck);
+    selectCell.appendChild(checkbox);
+    tr.appendChild(selectCell);
 
-    [ "Semester " + ["I","II","III","IV","V","VI","VII","VIII"][c.semester-1],
-      c.code + " — " + c.name, c.credits ].forEach(value => {
+    const values = [
+      "Semester " + ["I","II","III","IV","V","VI","VII","VIII"][course.semester - 1],
+      course.code,
+      course.name,
+      course.credits === null ? "To be determined" : course.credits
+    ];
+
+    values.forEach(value => {
       const td = document.createElement("td");
       td.textContent = value;
       tr.appendChild(td);
     });
 
-    const tdDecision = document.createElement("td");
+    const decisionCell = document.createElement("td");
     const badge = document.createElement("span");
     badge.className = "status";
-    badge.textContent = c.decision;
-    tdDecision.appendChild(badge);
-    tr.appendChild(tdDecision);
+    badge.textContent = course.decision;
+    decisionCell.appendChild(badge);
+    tr.appendChild(decisionCell);
 
-    const tdRationale = document.createElement("td");
-    tdRationale.textContent = c.rationale;
-    tr.appendChild(tdRationale);
+    const typeCell = document.createElement("td");
+    const typeBadge = document.createElement("span");
+    typeBadge.className = course.type === "Proposed" ? "status proposed" : "status";
+    typeBadge.textContent = course.type;
+    typeCell.appendChild(typeBadge);
+    tr.appendChild(typeCell);
+
+    const rationaleCell = document.createElement("td");
+    rationaleCell.textContent = course.rationale;
+    tr.appendChild(rationaleCell);
+
     tbody.appendChild(tr);
   });
 
   el("count").textContent = rows.length;
-  el("credits").textContent = rows.reduce((s,c) => s + c.credits, 0);
+  el("credits").textContent = rows
+    .filter(course => course.type === "Existing" && course.credits !== null)
+    .reduce((sum, course) => sum + course.credits, 0);
+
+  el("emptyMessage").hidden = rows.length !== 0;
   updateMetrics();
 }
 
 function updateMetrics() {
-  const chosen = courses.filter(c => selected.has(c.id));
+  const chosen = courses.filter(course => selected.has(course.id));
   el("selectedCount").textContent = chosen.length;
-  el("selectedCredits").textContent = chosen.reduce((s,c) => s + c.credits, 0);
+  el("selectedCredits").textContent = chosen
+    .filter(course => course.type === "Existing" && course.credits !== null)
+    .reduce((sum, course) => sum + course.credits, 0);
 }
 
-["search","semester","category"].forEach(id => el(id).addEventListener("input", render));
+["search","semester","category","recordType"].forEach(id => {
+  el(id).addEventListener("input", render);
+  el(id).addEventListener("change", render);
+});
 
 el("selectVisible").addEventListener("click", () => {
-  visibleCourses().forEach(c => selected.add(c.id));
+  visibleCourses().forEach(course => selected.add(course.id));
   render();
 });
+
 el("clearSelected").addEventListener("click", () => {
   selected.clear();
   render();
 });
 
 function updatePercentage() {
-  const total = Number(el("totalCredits").value);
-  const affected = Number(el("changedCredits").value);
-  if (!total || total <= 0 || affected < 0) {
-    el("percentage").textContent = "Enter valid credit values.";
+  const totalRaw = el("totalCredits").value;
+  const affectedRaw = el("changedCredits").value;
+
+  if (totalRaw === "" || affectedRaw === "") {
+    el("percentage").textContent = "Enter both values.";
+    el("targetStatus").textContent = "Not calculated.";
     return;
   }
-  el("percentage").textContent = (affected / total * 100).toFixed(2) + "%";
+
+  const total = Number(totalRaw);
+  const affected = Number(affectedRaw);
+
+  if (!Number.isFinite(total) || !Number.isFinite(affected) ||
+      total <= 0 || affected < 0 || affected > total) {
+    el("percentage").textContent = "Enter valid values; affected credits cannot exceed total credits.";
+    el("targetStatus").textContent = "Not calculated.";
+    return;
+  }
+
+  const percentage = affected / total * 100;
+  el("percentage").textContent = percentage.toFixed(2) + "%";
+
+  if (percentage >= 20 && percentage <= 25) {
+    el("targetStatus").textContent = "Within the 20–25% target range.";
+  } else {
+    el("targetStatus").textContent = "Outside the 20–25% target range; review the proposed changes.";
+  }
 }
+
 el("totalCredits").addEventListener("input", updatePercentage);
 el("changedCredits").addEventListener("input", updatePercentage);
 
 el("exportCsv").addEventListener("click", () => {
   const rows = visibleCourses();
-  const escapeCsv = value => '"' + String(value).replace(/"/g, '""') + '"';
+  const headers = [
+    "Semester","Course Code","Course Name","Credits",
+    "Recommendation","Record Type","Rationale"
+  ];
+
+  const csvEscape = value =>
+    '"' + String(value ?? "To be determined").replace(/"/g, '""') + '"';
+
   const csv = [
-    ["Semester","Course Code","Course Name","Credits","Recommendation","Rationale"],
-    ...rows.map(c => [c.semester,c.code,c.name,c.credits,c.decision,c.rationale])
-  ].map(row => row.map(escapeCsv).join(",")).join("\r\n");
-  const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+    headers,
+    ...rows.map(course => [
+      course.semester,
+      course.code,
+      course.name,
+      course.credits === null ? "To be determined" : course.credits,
+      course.decision,
+      course.type,
+      course.rationale
+    ])
+  ].map(row => row.map(csvEscape).join(",")).join("\r\n");
+
+  const blob = new Blob(["\uFEFF" + csv], {
+    type:"text/csv;charset=utf-8;"
+  });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "course_comparison.csv";
-  a.click();
-  URL.revokeObjectURL(url);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "curriculum_comparison.csv";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
 render();
+updatePercentage();
 </script>
 </body>
 </html>
