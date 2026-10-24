@@ -1,70 +1,118 @@
-# Task 1: HostelClear — Time-Savings Estimate
+# Task 1: HostelClear — Time Savings Analysis
 
-## 1. Objective
+## 1. Purpose
 
-This analysis estimates how a coordinated hostel vacating and no-dues clearance workflow could affect student effort and total completion time.
+This analysis estimates whether the proposed HostelClear workflow could reduce the time students spend managing hostel vacating and no-dues clearance requests.
 
-The estimates are illustrative because I have not measured the time spent at each department or tested a working HostelClear system.
+The estimate compares the existing process with the proposed workflow. It includes the time required for review and support so that the expected benefit is not overstated.
 
-## 2. Current-State Baseline
+**Important:** The figures below are illustrative assumptions used to demonstrate the calculation method. They are not measured results from students or an implemented HostelClear system.
 
-From my personal experience, collecting clearances by visiting departments individually took approximately one to two days.
+## 2. Baseline: Existing Process
 
-This is an estimate of elapsed completion time for my own experience, not a measured average for all students. The active time spent travelling, waiting, collecting signatures, and completing forms was not recorded.
+Based on personal recollection documented in the evidence log, completing the clearance process may take approximately 1–2 days of elapsed time. This is not a verified average for all students.
 
-## 3. Illustrative Scenario
+Elapsed time and active effort are different:
 
-To demonstrate the calculation method, assume the following hypothetical values for one request:
+- **Elapsed time** is the time between starting and completing the process, including waiting.
+- **Active effort** is the time spent visiting departments, following up, preparing documents, and resolving issues.
 
-| Activity | Current process | Proposed process |
+The calculation below estimates active effort in minutes. It does not treat an estimated 1–2 days of elapsed time as equivalent to continuous working hours.
+
+## 3. Illustrative Assumptions
+
+For one hypothetical clearance request:
+
+| Activity | Existing process | Proposed process |
 |---|---:|---:|
-| Active student effort across visits and coordination | 90 minutes | 35 minutes |
-| Follow-up and support effort | 0 minutes measured; unknown | 15 minutes |
-| Total effort considered | 90 minutes assumed | 50 minutes assumed |
+| Preparing and submitting information | 15 minutes | 15 minutes |
+| Department visits or status follow-up | 60 minutes | 20 minutes |
+| Checking status and coordinating next steps | 15 minutes | 10 minutes |
+| Initial review and validation | Included in existing effort | 10 minutes |
+| Additional support or exception handling | Not separately measured | 5 minutes |
+| **Total estimated active effort** | **90 minutes** | **60 minutes** |
 
-**Important:** These figures are illustrative assumptions, not measured results. The current-process value of 90 minutes is a scenario input, not a claim about my actual active effort.
+These figures are illustrative, not observations or confirmed institutional averages. The proposed workflow estimate assumes that centralized status visibility reduces repeated visits and follow-up. The review and support effort is included to account for work that still needs to be performed.
 
-## 4. Net Time-Saved Calculation
+## 4. Calculation
 
-Net effort saved is calculated as:
+### Existing Process
 
-**Net effort saved = Current-process effort − Proposed-process effort − Additional review/support effort**
+Total estimated active effort:
 
-For this illustration, the proposed-process effort of 35 minutes excludes the additional 15 minutes of follow-up and support.
+15 + 60 + 15 = **90 minutes**
 
-Net effort saved:
+### Proposed HostelClear Workflow
 
-90 − 35 − 15 = **40 minutes per request**
+Total estimated active effort:
 
-Under these hypothetical assumptions, the proposed workflow would save 40 minutes of combined effort per request.
+15 + 20 + 10 + 10 + 5 = **60 minutes**
 
-This result is not a verified saving. The actual result could be lower, zero, or negative if the new workflow adds more effort than it removes.
+### Net Time Saved
 
-## 5. Elapsed Time Versus Active Effort
+Net time saved = Existing process effort − Proposed process effort
 
-Elapsed time and active effort are different measures.
+= 90 − 60
 
-- **Elapsed time:** Time between starting the clearance request and receiving final clearance.
-- **Active effort:** Time people spend completing tasks, travelling, checking records, following up, and providing support.
-- **Waiting time:** Time spent waiting for staff availability, responses, or other required actions.
+= **30 minutes per request**
 
-The one-to-two-day duration recalled from my experience describes approximate elapsed time. It cannot be converted into active minutes without further evidence.
+### Percentage Reduction
 
-A coordinated workflow may reduce waiting and unnecessary visits, but it cannot guarantee immediate approval when an authorised staff member is unavailable.
+Percentage reduction = (Net time saved ÷ Existing process effort) × 100
 
-## 6. How to Measure Actual Savings
+= (30 ÷ 90) × 100
 
-If permitted, compare a small number of future clearance cases using these measures:
+= **33.3% estimated reduction in active effort**
 
-1. Record the request start and completion times.
-2. Record the number of physical department visits.
-3. Measure active student effort separately from waiting time.
-4. Record follow-up and support effort for the proposed workflow.
-5. Record whether any clearance required a return visit.
-6. Compare equivalent cases while ensuring that all required approvals remain in place.
+This percentage applies only to the illustrative assumptions above. It must not be reported as a proven improvement.
 
-Do not collect or publish student names, enrolment numbers, financial details, or other unnecessary personal information.
+## 5. Review and Support Effort
 
-## 7. Conclusion
+The proposed process still requires people to validate information, verify departmental records, handle exceptions, and approve clearance where required.
 
-HostelClear has the potential to reduce repeated visits and coordination effort. My personal experience provides an initial reason to investigate the problem, but the actual time saved remains unknown. A reliable conclusion requires measured baseline data and a trial of the proposed workflow, including the effort needed to review and support requests.
+The illustrative calculation includes:
+
+- 10 minutes for initial review and validation.
+- 5 minutes for additional support or exception handling.
+
+If actual review and support effort is higher, the net time saved will be lower. If the proposed process introduces additional work that exceeds the reduction in visits and follow-up, there may be no net time saving.
+
+The final estimate should therefore include all relevant activities rather than counting only the time saved by students.
+
+## 6. Sensitivity Analysis
+
+The benefit depends on how much time the workflow actually saves on visits and follow-up.
+
+| Scenario | Existing effort | Proposed effort, including review and support | Net time saved |
+|---|---:|---:|---:|
+| Lower benefit | 90 minutes | 80 minutes | 10 minutes |
+| Illustrative estimate | 90 minutes | 60 minutes | 30 minutes |
+| Higher benefit | 90 minutes | 45 minutes | 45 minutes |
+
+These are hypothetical scenarios used to show how the result changes when the proposed process requires different amounts of effort. They are not observed results.
+
+## 7. How to Validate the Estimate
+
+If the institution permits a future evaluation, the following approach could be used:
+
+1. Define the same start and completion points for both processes.
+2. Record active student effort and elapsed time separately.
+3. Include visits, follow-up, validation, support, and exception handling.
+4. Compare a reasonable number of similar requests over a defined period.
+5. Record incomplete requests and unusual cases rather than excluding them without explanation.
+6. Calculate average effort for each process.
+7. Recalculate net time saved using the observed values.
+
+Any collection of real student or institutional data would require appropriate permission and privacy safeguards.
+
+## 8. Limitations
+
+- The baseline active-effort figures are illustrative and are not measured values.
+- Personal recollection of an elapsed duration of approximately 1–2 days does not establish the average duration for other students.
+- The proposed workflow has not been deployed or evaluated in a production environment.
+- Actual results depend on departmental procedures, staff availability, the number of checks, and the frequency of exceptions.
+- The estimate does not prove that elapsed completion time will decrease by the same amount as active effort.
+
+## Conclusion
+
+Under the illustrative assumptions, HostelClear reduces estimated active effort from 90 minutes to 60 minutes per request, giving a net saving of 30 minutes after including review and support effort. This is a demonstration of the calculation method, not a measured result. Actual time savings would need to be established through an authorised evaluation.
