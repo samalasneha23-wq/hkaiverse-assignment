@@ -2,102 +2,161 @@
 
 ## 1. Purpose
 
-These synthetic test cases evaluate how the proposed HostelClear workflow should respond to normal requests, incomplete information, duplicate requests, unauthorised actions, and failed steps.
+These test cases evaluate the proposed HostelClear workflow under normal and exceptional conditions. They are synthetic scenarios created for design evaluation. They do not represent live tests of an institution's production system.
 
-These are simulated scenarios, not real student cases or results from a deployed system.
+Each case identifies the starting conditions, test steps, expected result, recovery action, and expected final status.
 
-## 2. Test Case 1: Normal Request
+## 2. Test Case Summary
 
-**Scenario:** A student submits a complete hostel vacating request. All required departments complete their checks and the authorised officer approves the final clearance.
-
-**Input:** Complete request details and all required clearances.
-
-**Expected result:**
-- A unique request ID is generated.
-- Required departments receive their clearance tasks.
-- Each department updates its status after completing its check.
-- Final approval is available only after all required checks are complete.
-- The student receives a completion confirmation.
-
-**Recovery required:** No, unless an unexpected issue occurs.
-
-**Pass condition:** The request is marked complete only after the required checks and final approval are recorded.
-
-## 3. Test Case 2: Missing Information
-
-**Scenario:** A student submits a request without a required field, such as the planned vacating date.
-
-**Input:** Request with a required field missing.
-
-**Expected result:**
-- The request is flagged as incomplete.
-- The student is told which information is missing.
-- The request is not marked fully cleared.
-- The student can correct and resubmit the information.
-
-**Recovery required:** The student provides the missing information.
-
-**Pass condition:** The incomplete request is not incorrectly approved, and the missing information is clearly identified.
-
-## 4. Test Case 3: Duplicate Request
-
-**Scenario:** A student submits the same vacating request twice.
-
-**Input:** Two requests with matching identifying details and the same intended vacating event.
-
-**Expected result:**
-- The workflow flags a possible duplicate.
-- It does not automatically create conflicting clearance tasks.
-- An authorised coordinator reviews the duplicate.
-- The valid request and its existing progress are preserved.
-
-**Recovery required:** The coordinator confirms whether the second request is a duplicate or a genuinely separate request.
-
-**Pass condition:** The duplicate does not lead to conflicting approvals or accidental loss of progress.
-
-## 5. Test Case 4: Unauthorised Approval
-
-**Scenario:** A person without the required permission attempts to approve a department clearance or final clearance.
-
-**Input:** An approval attempt from an unauthorised account or role.
-
-**Expected result:**
-- The approval attempt is rejected.
-- The clearance status remains unchanged.
-- The action is recorded for appropriate review.
-- The request remains pending until an authorised person completes the approval.
-
-**Recovery required:** The assigned authorised person reviews and completes the required check.
-
-**Pass condition:** An unauthorised person cannot approve or bypass a required clearance.
-
-## 6. Test Case 5: Failed Step or Unavailable Staff
-
-**Scenario:** A required department cannot complete its check because the responsible staff member is unavailable, or the workflow system becomes temporarily unavailable.
-
-**Input:** A required clearance remains incomplete, or the system fails during processing.
-
-**Expected result:**
-- The request is not incorrectly marked complete.
-- The outstanding clearance is shown as Pending.
-- The responsible department and next follow-up action are identified.
-- If staff are unavailable, follow-up or an authorised alternate is arranged where permitted.
-- If the system fails, the approved paper fallback is used and records are reconciled when the system returns.
-
-**Recovery required:** The authorised department completes the check, or the workflow is restored and any fallback records are reconciled.
-
-**Pass condition:** The process can recover without losing required checks, records, or approval controls.
-
-## 7. Test Summary
-
-| Test | Expected outcome | Main control |
+| Test ID | Scenario | Expected outcome |
 |---|---|---|
-| Normal request | Correct completion | All required checks and final approval |
-| Missing information | Request remains incomplete | Input validation |
-| Duplicate request | Duplicate flagged for review | Duplicate detection |
-| Unauthorised approval | Approval rejected | Role-based access |
-| Failed step / unavailable staff | Request remains pending and can recover | Follow-up and fallback procedure |
+| TC01 | Normal clearance request | Required checks and approvals are completed before closure |
+| TC02 | Missing information | Request is returned for the missing information |
+| TC03 | Duplicate request | Duplicate is identified and conflicting records are avoided |
+| TC04 | Unauthorised approval attempt | Unauthorised action is blocked and referred appropriately |
+| TC05 | Failed department step or technical failure | Request remains pending until the failure is recovered |
 
-## 8. Testing Limitations
+## 3. TC01 — Normal Clearance Request
 
-These cases describe expected system behaviour. They have not been executed against a deployed application. They are design-level tests for the proposed workflow and should be tested with a prototype before real implementation.
+**Objective:** Verify that a complete request can move through all required stages.
+
+**Starting conditions:**
+- A student submits a complete request.
+- Required departmental checks are available.
+- The relevant authorised representatives can perform their checks.
+
+**Test steps:**
+1. Submit a request with all required information.
+2. Validate the submitted information.
+3. Create a unique request ID.
+4. Record the result of each required departmental check.
+5. Complete the required final approval.
+6. Close the request.
+
+**Expected result:**
+- The request receives a unique tracking ID.
+- Each required verification has a recorded outcome.
+- The request progresses through the appropriate statuses.
+- The request is marked Completed only after all required checks and approvals are recorded.
+
+**Recovery action:** If any check remains incomplete, keep the request pending and assign the next action to the responsible person.
+
+**Expected final status:** Completed, provided all required checks and approvals succeed.
+
+## 4. TC02 — Missing Information
+
+**Objective:** Verify that incomplete requests are not incorrectly approved.
+
+**Starting conditions:**
+- A request is submitted without one required field or document.
+
+**Test steps:**
+1. Submit the incomplete request.
+2. Run the validation step.
+3. Identify the missing information.
+4. Notify the student or requester.
+5. Supply the missing information.
+6. Validate the request again and resume processing.
+
+**Expected result:**
+- The missing information is identified.
+- The request is marked Action Required.
+- The request does not proceed to final approval while the required information is missing.
+- The corrected request can resume processing after successful validation.
+
+**Recovery action:** The student supplies the missing information. The coordinator checks it before continuing.
+
+**Expected final status:** Pending Department Verification or a later valid status after the missing information has been supplied and checked.
+
+## 5. TC03 — Duplicate Request
+
+**Objective:** Verify that repeated submissions do not create conflicting clearance records.
+
+**Starting conditions:**
+- An active clearance request already exists for the same intended clearance.
+- The same request is submitted again.
+
+**Test steps:**
+1. Submit the original request.
+2. Submit a second request with matching identifying information.
+3. Check for an existing active request.
+4. Review whether the second submission is a duplicate.
+5. Link it to the existing request or record it as a duplicate according to the approved rules.
+
+**Expected result:**
+- The duplicate is detected or flagged for review.
+- The original request remains the primary active record.
+- Conflicting approvals or duplicate completion records are not created.
+
+**Recovery action:** The coordinator reviews uncertain matches before merging, linking, or closing a record.
+
+**Expected final status:** The original request retains its valid status. The duplicate is linked or marked as a duplicate after review.
+
+## 6. TC04 — Unauthorised Approval Attempt
+
+**Objective:** Verify that users cannot approve checks outside their authority.
+
+**Starting conditions:**
+- A user without the required approval permission attempts to approve a departmental check or final clearance.
+
+**Test steps:**
+1. Create a request with at least one required check still pending.
+2. Attempt approval using an unauthorised role.
+3. Check whether the workflow rejects the action.
+4. Review whether the request status remains unchanged.
+5. Refer the pending approval to the authorised representative.
+
+**Expected result:**
+- The unauthorised approval is blocked.
+- The request does not become Approved or Completed because of that action.
+- The pending check remains visible.
+- The event is recorded where audit logging is supported.
+
+**Recovery action:** The authorised representative reviews and completes the required approval.
+
+**Expected final status:** Pending Department Verification or Pending Final Approval until the authorised action is completed.
+
+## 7. TC05 — Failed Department Step or Technical Failure
+
+**Objective:** Verify that a failed step does not cause the workflow to lose its status or incorrectly close a request.
+
+**Starting conditions:**
+- A request is being processed.
+- A department verification cannot be completed, or the tracking service becomes unavailable.
+
+**Test steps:**
+1. Begin processing a valid request.
+2. Simulate an unavailable department representative or a technical failure.
+3. Attempt to continue the workflow.
+4. Check whether the incomplete step remains visible.
+5. Record the issue and notify the responsible person.
+6. Restore the service or resume the authorised manual process.
+7. Reconcile the recorded status and continue processing.
+
+**Expected result:**
+- The incomplete step is not treated as successful.
+- The request remains pending or is placed On Hold as appropriate.
+- The last confirmed status is preserved where technically possible.
+- Recovery actions are recorded.
+- The request resumes only after the failed step has been completed or the issue has been resolved.
+
+**Recovery action:** Use the approved manual fallback during an outage, then reconcile records after service restoration. If a representative is unavailable, follow the approved escalation process.
+
+**Expected final status:** Pending Department Verification or On Hold until the failed step is resolved; the request may proceed afterwards.
+
+## 8. Overall Acceptance Criteria
+
+The proposed workflow is considered to satisfy these design checks if:
+
+1. Complete requests can progress through the required stages.
+2. Missing information prevents premature approval.
+3. Duplicate submissions do not create conflicting active records.
+4. Unauthorised users cannot approve restricted steps.
+5. Failed steps remain visible and can be recovered without falsely marking a request complete.
+6. Every completed request has the required verification and approval records.
+
+These are expected outcomes for the proposed design. They should be validated through a prototype or authorised pilot before the workflow is used in practice.
+
+## 9. Limitations
+
+The scenarios are synthetic and describe expected behaviour. No claim is made that these tests were executed against a live HostelClear system or an institutional production environment.
