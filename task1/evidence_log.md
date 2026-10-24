@@ -1,47 +1,84 @@
-# Task 1: HostelClear — Evidence Log
+# Task 1: Evidence Log
 
-**Project:** Proposed Streamlined Hostel Vacating and No-Dues Clearance Workflow  
-**Institution:** IFHE, Hyderabad  
-**Prepared on:** 23 October 2026
+## 1. Purpose
 
-## 1. Objective
+This evidence log records the information used to investigate the college no-dues clearance and hostel-vacating workflow. It separates personally inspected information from personal recollection, assumptions, and information that still needs verification.
 
-The objective is to study the hostel vacating and no-dues clearance process, identify possible delays and repeated visits, and propose a more coordinated workflow without removing necessary approvals.
+**Workflow:** College No-Dues Clearance and Hostel Vacating  
+**Proposed solution:** HostelClear  
+**Evidence log updated:** 24 October 2026
 
-## 2. Evidence Log
+## 2. Evidence Register
 
-| ID | Evidence | Type | Limitations |
+| ID | Evidence or information | Evidence type | Source or method | Limitation |
+|---|---|---|---|---|
+| E01 | A blank No-Dues Certificate was inspected. | Personally inspected | Blank college form | The current official version and its public-sharing permission have not been independently confirmed. |
+| E02 | The form listed Library, Computer Lab, Academic Office, CSO, Student Service Department (SSD), and Hostel. | Personally inspected | Department names on the blank form | The list reflects the form inspected, not necessarily the current requirements for every student. |
+| E03 | The form instructions referred to fee receipts, ID card surrender, room keys, and hostel handover. | Personally inspected | Instructions on the blank form | The exact applicability of each requirement must be confirmed with the responsible office. |
+| E04 | The clearance process involved visiting departments individually in my experience. | Personal recollection | My experience of completing the process | This is one personal experience, not a systematic observation of all students. |
+| E05 | The process took approximately one to two days in my experience. | Personal estimate | Personal recollection of elapsed time | This is not a measured average and does not represent active working time. |
+| E06 | Separate department visits may make it difficult to see all pending steps at once. | Inference | Interpretation of the multi-department workflow | Requires confirmation through additional observations or authorised staff feedback. |
+| E07 | Missing information or unresolved items may require a student to follow up. | Assumption to test | Proposed exception scenarios | No frequency or actual number of such cases has been measured. |
+| E08 | A consolidated status tracker may reduce repeated follow-up. | Proposed hypothesis | Proposed HostelClear workflow | Benefits must be tested; no live system has been implemented or evaluated. |
+| E09 | The number of students completing clearance in a defined period is unknown. | Data gap | No verified volume data collected | An authorised aggregate count would be needed to estimate scale. |
+| E10 | Official approval boundaries and escalation procedures have not been fully verified. | Data gap | No confirmed official procedure available for this report | Must be confirmed with the appropriate institutional office before implementation. |
+
+## 3. Evidence Collection Method
+
+The investigation uses a blank No-Dues Certificate and personal recollection of the clearance process. The form was used to identify the departments and requirements printed on it.
+
+The process map and proposed solution are based on this limited evidence. They are not presented as a complete official procedure. No claim is made that staff interviews, a formal survey, or institution-wide time measurements were conducted.
+
+## 4. Dated Activity Log
+
+| Date | Activity | Result | Evidence status |
 |---|---|---|---|
-| E01 | I visited departments individually to collect signatures during my hostel vacating process. | Personal recollection | Based on my own experience. |
-| E02 | My process took approximately one to two days. | Personal estimate | Not a measured average for all students. |
-| E03 | I inspected a blank IFHE No Dues Certificate. It lists Library, Computer Lab, Academic Office, Chief Security Officer (CSO), Student Service Department (SSD), and Hostel. | Document-based evidence | The form's current validity and exact procedure have not yet been independently confirmed. |
-| E04 | The form includes instructions about fee receipts, identity-card surrender, room keys, and hostel handover. | Document-based evidence | These are the instructions visible on the form; additional requirements may exist. |
-| E05 | Visiting departments one by one felt inconvenient. | Personal observation | Does not establish that every student experiences the same difficulty. |
-| E06 | A central tracker might help students identify pending clearances and reduce unnecessary visits. | Hypothesis | Needs testing; required approvals must be preserved. |
+| Before 24 October 2026 | Inspected a blank No-Dues Certificate during preparation of the workflow investigation. | Identified the departments and requirements printed on the form. | Personally inspected; exact inspection date not recorded. |
+| Before 24 October 2026 | Recalled my experience of completing hostel-vacating clearance. | Estimated elapsed time of approximately one to two days and noted individual department visits. | Personal recollection; exact dates and active time not recorded. |
+| 24 October 2026 | Prepared the preliminary current-state map and evidence classification. | Separated inspected information, recollection, assumptions, and unknowns. | Report preparation date. |
+| 24 October 2026 | Developed the proposed HostelClear workflow and synthetic test cases. | Defined potential statuses, exception handling, and cases to test. | Design work; not a live institutional trial. |
 
-## 3. Evidence Collection Details
+Dates that were not recorded at the time have not been invented. The activity log distinguishes the report preparation date from earlier activities whose exact dates are unknown.
 
-**Source 1:** My personal experience of hostel vacating and collecting signatures individually.
+## 5. Scale and Time Data Gaps
 
-**Source 2:** Blank IFHE No Dues Certificate provided for this assignment.
+The following values are not currently supported by measured data:
 
-**Document inspection date:** 23 October 2026.
+- Number of students completing clearance per week or semester.
+- Average number of visits per student.
+- Average active time spent by students.
+- Average time spent by staff processing each clearance.
+- Number or percentage of cases requiring repeat visits.
+- Frequency of missing information, duplicate requests, or unresolved dues.
 
-**Permission status:** Permission to share the blank No Dues Certificate for this academic assignment was obtained. A copy of the certificate is included in this repository for reference, with personal information such as the enrolment number removed to protect privacy
+The one-to-two-day estimate refers only to remembered elapsed time in one experience. It must not be used as the average for all students or as the number of staff working hours.
 
-## 4. Information Still to Verify
+The time-savings document uses explicitly illustrative assumptions to compare a possible existing process with a proposed process. Those calculations are not measurements of actual institutional performance.
 
-1. Whether all departments listed on the form are required for every student.
-2. The purpose of each department's clearance.
-3. Who is responsible for final approval.
-4. Whether some checks can be completed in parallel.
-5. What happens when a staff member is unavailable or a clearance requires further action.
-6. Whether an official written procedure is available.
+## 6. Privacy and Permission
 
-## 5. Limitations
+No student names, identification numbers, fee records, room numbers, or individual clearance details are included in this log.
 
-This initial investigation uses personal recollection and inspection of a blank form. I have not yet collected timings from multiple students or independently confirmed the complete current procedure. I will not present estimates or assumptions as verified facts.
+The report describes the blank form but does not reproduce or attach it. Before publicly uploading the form or collecting further information, permission and institutional rules should be checked. Permission to share the form publicly is not claimed unless it has been explicitly confirmed.
 
-## 6. Initial Improvement Opportunity
+Any additional investigation should use voluntary participation, avoid collecting unnecessary personal information, and report aggregate results where appropriate.
 
-HostelClear proposes one request record with a checklist of required clearances, clear status labels, accountable owners, final authorised approval, and a fallback process. This is a proposed improvement, not an existing IFHE system.
+## 7. Verification Plan
+
+The following checks would strengthen the investigation:
+
+1. Confirm the current approved no-dues procedure with the responsible institutional office.
+2. Confirm which departments and items are required for the relevant student category.
+3. Confirm the authorised approval roles and escalation route.
+4. Request permission before conducting staff discussions or observations.
+5. If permitted, collect a small, dated sample of process times and repeat visits.
+6. Record the sample size, measurement method, and limitations.
+7. Validate the proposed tracker with synthetic cases before considering any real use.
+
+Until these checks are completed, unverified details remain assumptions or data gaps.
+
+## 8. Conclusion
+
+The evidence supports a preliminary description of the departments and requirements shown on the inspected form, together with a personal account of individual department visits. It does not establish institution-wide processing times, case volumes, or official approval rules.
+
+HostelClear is therefore presented as a proposed improvement to test, not as an existing system or a proven solution.
