@@ -98,7 +98,7 @@ Sources, access dates, calculations, and verification details should be document
 
 ## Limitations
 
-- The workflow proposal has not been deployed or approved by the institution.
+
 - Synthetic test cases describe expected behavior; they do not establish that a live system has been tested.
 - Time-saving figures are illustrative unless supported by measured results.
 - Curriculum recommendations depend on confirming the applicable official syllabus, credits, prerequisites, and academic regulations.
