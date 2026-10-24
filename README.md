@@ -1,47 +1,50 @@
-# College Workflow Investigation and Curriculum Audit
+# HKAIverse Round 2 Assessment
 
 ## Project Overview
 
-This repository contains two separate assignments completed as part of the Round 2 assessment.
+This repository contains the two assignments required for the HKAIverse Round 2 assessment:
 
-**Task 1 – College Workflow Investigation:** Examines a college process, documents its current workflow and challenges, and proposes an improved process with clear responsibilities, exception handling, test scenarios, and estimated time savings.
+1. **Task 1 – College Workflow Investigation**
+2. **Task 2 – Curriculum Audit and Redesign**
 
-**Task 2 – Curriculum Audit and Redesign:** Reviews the applicable academic curriculum, maps courses and credits, compares curriculum skills with industry job requirements, and proposes evidence-based improvements and practical AI-assisted learning activities.
-
-Each task has its own objectives, analysis, documentation, and deliverables. A proposed lab or capstone based on the workflow investigated in Task 1 may also be explored as part of Task 2.
+Each task has a separate folder with its own analysis, evidence, calculations, and supporting documents. The work focuses on understanding an existing process, proposing practical improvements, reviewing curriculum relevance, and explaining the reasoning behind the recommendations.
 
 ---
 
 ## Task 1: College Workflow Investigation
 
-### Problem
+### Objective
 
-The college clearance process involves obtaining confirmations from relevant departments. When students need to approach departments individually, tracking pending approvals, identifying responsible people, and understanding the remaining actions can become difficult.
+Investigate a college clearance process, document how it works, identify difficulties, and propose an improved workflow with clear responsibilities and exception handling.
 
-### Proposed Solution: CampusFlow
+### Process Studied
 
-CampusFlow is a proposed centralized college clearance workflow. It aims to make requests easier to track while preserving each department's responsibility for its own checks and approvals.
+The investigation focuses on the college no-dues clearance process, which involves obtaining confirmations from relevant departments.
 
-The proposal covers:
+### Proposed Improvement: CampusFlow
 
-- The current workflow and its main steps.
-- Evidence, estimates, assumptions, and limitations.
-- A redesigned process with request statuses and accountable owners.
-- Approval boundaries, exception handling, and a fallback process.
-- Five synthetic test scenarios covering normal and exceptional cases.
-- An illustrative time-saving calculation that includes review and support effort.
+CampusFlow is a proposed centralized workflow for tracking clearance requests. It is intended to improve visibility of pending actions and clarify responsibility while preserving departmental approval authority.
 
-The proposed solution is a design concept; it is not presented as a deployed or institution-approved system.
+The investigation covers:
 
-### Task 1 Files
+- Current process steps, handoffs, approvals, and exceptions.
+- A dated evidence log distinguishing observed facts, estimates, and assumptions.
+- The problem and its estimated scale.
+- Proposed inputs, statuses, accountable ownership, approval boundaries, and fallback arrangements.
+- Five synthetic test cases: normal, missing information, duplicate request, unauthorized request, and failed step.
+- Expected outcomes, recovery actions, and an illustrative net time-saving calculation that includes review and support effort.
 
-| File | Purpose |
+### Task 1 Documentation
+
+| File | Description |
 |---|---|
-| [`evidence_log.md`](task1/evidence_log.md) | Records the evidence, estimates, assumptions, and limitations used in the investigation. |
-| [`current_state.md`](task1/current_state.md) | Explains the existing process and its potential difficulties. |
-| [`proposed_workflow.md`](task1/proposed_workflow.md) | Describes the improved workflow, statuses, ownership, approvals, and fallback. |
-| [`test_cases.md`](task1/test_cases.md) | Defines synthetic scenarios for checking how the proposed workflow should respond. |
-| [`time_savings.md`](task1/time_savings.md) | Explains the time-saving calculation and its assumptions. |
+| [Evidence Log](task1/evidence_log.md) | Evidence, dates, observations, estimates, and assumptions. |
+| [Current State](task1/current_state.md) | Existing workflow and identified difficulties. |
+| [Proposed Workflow](task1/proposed_workflow.md) | Improved process, statuses, responsibilities, approvals, and fallback. |
+| [Test Cases](task1/test_cases.md) | Five synthetic scenarios and their expected outcomes. |
+| [Time Savings](task1/time_savings.md) | Calculation and assumptions used to estimate net time saved. |
+
+The proposed workflow is a design concept, not a deployed or institution-approved system.
 
 ---
 
@@ -49,65 +52,68 @@ The proposed solution is a design concept; it is not presented as a deployed or 
 
 ### Objective
 
-The objective is to examine how the curriculum can better support practical skills, current technical roles, and project-based learning while considering credit requirements and academic constraints.
+Review the applicable curriculum for the relevant programme, branch, admission batch, and curriculum version. Identify opportunities to strengthen practical learning and alignment with industry requirements while considering credit totals, prerequisites, and academic regulations.
 
-### Areas Covered
+### Scope of the Audit
+
+The curriculum review covers:
 
 - Course and credit mapping by semester.
-- Curriculum audit using KEEP, UPDATE, REDUCE, and ADD recommendations.
-- Comparison with relevant job descriptions and their stated skill requirements.
-- Proposed curriculum changes with attention to credit balance and prerequisites.
-- AI-assisted practical exercises across five subjects.
-- Documentation of AI use, verification requirements, feedback status, and limitations.
-- A proposed capstone based on the CampusFlow workflow investigation.
+- KEEP, UPDATE, REDUCE, and ADD recommendations.
+- Eight to twelve specific reasons supporting curriculum decisions.
+- Comparison with at least three real, dated job descriptions.
+- Proposed changes affecting approximately 20–25% of programme credits, with credit balance and regulatory conditions considered.
+- Five AI-assisted practical exercises across five subjects, with prompts, model and date, outputs, and verification records.
+- Faculty or graduate feedback, where accessible, or an explanation of why it could not be obtained.
+- An interactive course comparison, filter, or credit calculator.
+- A proposed lab or capstone developed from the workflow investigated in Task 1.
 
-Curriculum recommendations are proposals, not official changes to the university syllabus. Final course mappings and credit calculations must be consistent with the official curriculum applicable to the relevant programme, branch, admission batch, and curriculum version.
+### Task 2 Documentation
 
-### Task 2 Files
-
-| File | Purpose |
+| File | Description |
 |---|---|
-| [`course_credit_map.md`](task2/course_credit_map.md) | Organizes the course and credit information used in the review. |
-| [`curriculum_audit.md`](task2/curriculum_audit.md) | Identifies subjects and areas that may be retained or improved. |
-| [`job_market_comparison.md`](task2/job_market_comparison.md) | Compares job requirements with the skills addressed by the curriculum. |
-| [`redesign_proposal.md`](task2/redesign_proposal.md) | Presents proposed curriculum changes and credit considerations. |
-| [`ai_exercises.md`](task2/ai_exercises.md) | Describes AI-assisted practical exercises across five subjects. |
-| [`ai_use_log.md`](task2/ai_use_log.md) | Documents how AI supports the analysis and practical exercises. |
-| [`feedback_and_limitations.md`](task2/feedback_and_limitations.md) | Records feedback status, constraints, and limitations. |
-| [`capstone_proposal.md`](task2/capstone_proposal.md) | Develops CampusFlow into a proposed practical lab or capstone project. |
+| [Course and Credit Map](task2/course_credit_map.md) | Course and credit information organized by semester. |
+| [Curriculum Audit](task2/curriculum_audit.md) | Curriculum findings and KEEP, UPDATE, REDUCE, and ADD recommendations. |
+| [Job Market Comparison](task2/job_market_comparison.md) | Comparison of curriculum skills with employer requirements. |
+| [Redesign Proposal](task2/redesign_proposal.md) | Proposed changes, credit impact, prerequisites, and regulatory considerations. |
+| [AI Exercises](task2/ai_exercises.md) | AI-assisted exercises across five subjects. |
+| [AI Use Log](task2/ai_use_log.md) | Record of AI use and output-verification activities. |
+| [Feedback and Limitations](task2/feedback_and_limitations.md) | Feedback status, constraints, and limitations. |
+| [Capstone Proposal](task2/capstone_proposal.md) | Proposed practical lab or capstone based on the workflow investigation. |
+| [Interactive Course Tool](task2/course_comparison_tool.html) | Interactive course comparison, filtering, or credit calculation. |
+
+### Sources and Verification
+
+Official university syllabus documents and regulations are the basis for curriculum requirements. Job descriptions provide evidence of the skills requested by employers. Source URLs, access dates, calculations, and verification details should be recorded in the relevant files.
+
+Curriculum recommendations are proposals for evaluation, not official syllabus revisions.
 
 ---
 
-## How the Two Tasks Connect
+## Personal Contribution
 
-Task 1 identifies a process that could benefit from better tracking and coordination. Task 2 uses that same process as the foundation for a practical project.
+My contribution includes documenting the selected college workflow, distinguishing evidence from estimates and assumptions, developing the proposed workflow and synthetic test scenarios, calculating illustrative time savings, reviewing course and credit information, comparing curriculum skills with job descriptions, and preparing curriculum recommendations and practical learning exercises.
 
-The connection demonstrates how students can apply workflow analysis, data handling, requirements definition, exception handling, and system design to a real-world college scenario.
-
-It also provides an example of how academic learning can be connected to process improvement and industry-oriented project work.
-
----
-
-## Sources and Evidence
-
-The analysis should prioritize official university curriculum documents and regulations for academic requirements. Job descriptions are used to identify employer-stated skills and responsibilities. The workflow investigation distinguishes available evidence from estimates and assumptions.
-
-Sources, access dates, calculations, and verification details should be documented in the relevant task files. Unverified information and proposed improvements should be identified clearly rather than presented as established facts.
+The documentation distinguishes completed analysis from proposed designs and identifies information that still requires verification.
 
 ---
 
 ## Limitations
 
-
-- Synthetic test cases describe expected behavior; they do not establish that a live system has been tested.
-- Time-saving figures are illustrative unless supported by measured results.
-- Curriculum recommendations depend on confirming the applicable official syllabus, credits, prerequisites, and academic regulations.
-- Feedback should only be reported as received when it has actually been obtained.
+- The proposed workflow has not been deployed or approved by the institution.
+- Synthetic test cases describe expected behavior; they are not evidence of testing a live system.
+- Time-saving estimates are illustrative unless supported by measured observations.
+- Curriculum and credit calculations depend on the applicable official syllabus and regulations.
+- AI-generated outputs require independent verification.
+- Feedback is reported only if it was actually obtained; otherwise, access limitations are explained.
+- The proposed curriculum changes remain subject to academic approval and prerequisite requirements.
 
 ---
 
-## Conclusion
+## Final Revision
 
-This project combines a college workflow investigation with a curriculum review to explore practical ways of improving coordination and strengthening industry-relevant learning. CampusFlow provides a common example connecting process analysis, proposed system design, and project-based education.
+- **Repository:** [HKAIverse Round 2 Assessment](https://github.com/samalasneha23-wq/hkaiverse-assignment)
+- **Release:** Add the published GitHub release URL after creating the final release.
+- **Full commit URL:** Add the full commit URL corresponding to the preserved final revision.
 
-The recommendations are intended to support further evaluation and improvement while respecting evidence, academic requirements, approval boundaries, and the limitations of the available information.
+The release and commit links should refer to the same final revision submitted for review.
