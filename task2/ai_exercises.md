@@ -1,46 +1,76 @@
-# AI-Assisted Learning Exercises
+# AI-Assisted Practical Exercises Across Five Subjects
 
-## 1. Objective
+## 1. Introduction
 
-This document presents five AI-assisted exercises related to the B.Tech Computer Science and Engineering (Artificial Intelligence and Data Science) curriculum.
+This document presents five small AI-assisted practical exercises across different subjects in the B.Tech Artificial Intelligence and Data Science curriculum. Each exercise connects a subject concept with a practical application.
 
-The exercises demonstrate how AI tools can support learning, practical problem-solving, code review and technical understanding. AI-generated suggestions are treated as starting points and are checked using relevant concepts, calculations, documentation or test cases.
-
-## 2. AI Usage Record
-
-For each exercise, record the AI tool and model actually used, the date of the interaction, the prompt, a concise summary of the output, and the verification performed.
-
-AI tool: ChatGPT  
-Model: Record the model displayed by the tool when performing the exercise.  
-Date: Record the actual date of the interaction.
+The exercises use AI assistance to generate or explain an initial solution. The suggested outputs and verification checks are included so that the results can be checked against expected behaviour. An expected result is not treated as a personally observed result unless it has actually been tested.
 
 ## Exercise 1: Computer Programming — Python Data Validation
 
 ### Objective
 
-Use AI to generate a Python function that checks whether a list contains valid, non-negative numeric values and identifies invalid entries.
+To develop a Python function that separates valid non-negative numeric values from invalid entries.
 
-### Prompt
+### Prompt Used
 
-"Write a simple Python function that accepts a list of values, identifies non-negative numeric values, and reports invalid entries. Explain the code and include test cases for normal input, negative numbers, strings and an empty list."
+"Write a simple Python function that accepts a list of values, separates non-negative numeric values from invalid entries, and tests normal input, negative numbers, strings and an empty list. Explain the code."
 
-### Expected AI output
+### Python Code
 
-The AI should suggest a function that checks the input values, distinguishes valid values from invalid ones, and explains the handling of edge cases.
+```python
+def validate_values(values):
+    valid_values = []
+    invalid_entries = []
 
-### Verification method
+    for value in values:
+        if (isinstance(value, (int, float))
+                and not isinstance(value, bool)
+                and value >= 0):
+            valid_values.append(value)
+        else:
+            invalid_entries.append(value)
 
-- Run the generated code in Python.
-- Test a list containing valid non-negative numbers.
-- Test negative values and strings.
-- Test an empty list.
-- Check whether the output matches the expected results.
+    return valid_values, invalid_entries
 
-### Learning outcome
 
-The exercise demonstrates input validation, conditional logic, functions and testing.
+test_cases = [
+    [10, 0, 4.5, 7],
+    [5, -3, "hello", 2],
+    []
+]
 
-**Execution result:** Record the actual test results after running the code.
+for test in test_cases:
+    valid, invalid = validate_values(test)
+    print("Input:", test)
+    print("Valid values:", valid)
+    print("Invalid entries:", invalid)
+    print()
+```
+
+### Expected Output
+
+```text
+Input: [10, 0, 4.5, 7]
+Valid values: [10, 0, 4.5, 7]
+Invalid entries: []
+
+Input: [5, -3, 'hello', 2]
+Valid values: [5, 2]
+Invalid entries: [-3, 'hello']
+
+Input: []
+Valid values: []
+Invalid entries: []
+```
+
+### Verification
+
+Check that zero and positive numbers are accepted, negative numbers and strings are rejected, and an empty list returns two empty lists. The output should match the expected results above.
+
+### Learning Outcome
+
+This exercise demonstrates functions, lists, loops, conditional statements, data-type checking and basic testing.
 
 ---
 
@@ -48,156 +78,259 @@ The exercise demonstrates input validation, conditional logic, functions and tes
 
 ### Objective
 
-Use AI to help write an SQL query that calculates total sales by product category.
+To calculate the total amount spent by each customer using SQL aggregation.
 
-### Prompt
+### Prompt Used
 
-"Consider an orders table containing order_id, category and sales_amount. Write an SQL query to calculate total sales for each category, sort the results from highest to lowest, and explain how GROUP BY and SUM work."
+"Create a small SQL example with a Customers table and an Orders table. Write a query to calculate the total order amount for each customer using a JOIN, GROUP BY and SUM."
 
-### Expected AI output
+### Example Tables
 
-The AI should suggest a query using `GROUP BY`, `SUM()` and `ORDER BY`.
+**Customers**
 
-Example query:
+| customer_id | customer_name |
+|---:|---|
+| 1 | Asha |
+| 2 | Ravi |
+| 3 | Meena |
+
+**Orders**
+
+| order_id | customer_id | amount |
+|---:|---:|---:|
+| 101 | 1 | 500 |
+| 102 | 1 | 300 |
+| 103 | 2 | 700 |
+| 104 | 3 | 200 |
+
+### SQL Query
 
 ```sql
 SELECT
-    category,
-    SUM(sales_amount) AS total_sales
-FROM orders
-GROUP BY category
-ORDER BY total_sales DESC;
+    c.customer_id,
+    c.customer_name,
+    SUM(o.amount) AS total_amount
+FROM Customers c
+JOIN Orders o
+    ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name
+ORDER BY c.customer_id;
 ```
 
-### Verification method
+### Expected Output
 
-- Create a small test table with known sales values.
-- Execute the query in MySQL.
-- Calculate the expected category totals manually.
-- Compare the SQL output with the manual calculations.
+| customer_id | customer_name | total_amount |
+|---:|---|---:|
+| 1 | Asha | 800 |
+| 2 | Ravi | 700 |
+| 3 | Meena | 200 |
 
-### Learning outcome
+### Verification
 
-The exercise demonstrates SQL aggregation, grouping, sorting and result verification.
+Add the order amounts manually for each customer and compare them with the query results. Asha's total should be 500 + 300 = 800. Ravi's total should be 700, and Meena's total should be 200.
 
-**Execution result:** Record the actual query output and whether it matches the manual calculation.
+### Learning Outcome
+
+This exercise demonstrates relational joins, aggregate functions, grouping and sorting. It also shows how SQL can summarise transaction data.
 
 ---
 
-## Exercise 3: Data Science — Data Cleaning
+## Exercise 3: Data Analytics — Missing-Value Analysis Using Python
 
 ### Objective
 
-Use AI to develop a basic approach for identifying missing values and duplicate records in a dataset.
+To identify missing values in a dataset and calculate the average of the available numeric values.
 
-### Prompt
+### Prompt Used
 
-"Explain how to inspect a CSV dataset for missing values and duplicate rows using Python and pandas. Provide code to report these issues before modifying the data. Explain why missing values should not automatically be replaced with zero."
+"Write a Python example using pandas to identify missing values in a small dataset and calculate the average of a numeric column while ignoring missing values. Explain the result."
 
-### Expected AI output
-
-The AI should suggest using pandas to inspect the dataset, count missing values and identify duplicates before deciding how to handle them.
-
-Example code:
+### Python Code
 
 ```python
 import pandas as pd
 
-df = pd.read_csv("data.csv")
+data = {
+    "student": ["Asha", "Ravi", "Meena", "Arun"],
+    "marks": [80, 90, None, 70]
+}
 
-print("Missing values:")
+df = pd.DataFrame(data)
+
+print("Original dataset:")
+print(df)
+
+print("\nMissing values:")
 print(df.isnull().sum())
 
-print("Duplicate rows:")
-print(df.duplicated().sum())
+average_marks = df["marks"].mean()
+print("\nAverage marks:", average_marks)
 ```
 
-### Verification method
+### Expected Output
 
-- Create or use a small dataset with known missing values and duplicate rows.
-- Run the code and compare the counts with the dataset.
-- Inspect the affected rows.
-- Confirm that missing-value treatment depends on the meaning of each column.
+```text
+Original dataset:
+  student  marks
+0    Asha   80.0
+1    Ravi   90.0
+2   Meena    NaN
+3    Arun   70.0
 
-### Learning outcome
+Missing values:
+student    0
+marks      1
+dtype: int64
 
-The exercise demonstrates data-quality assessment, exploratory data analysis and evidence-based cleaning decisions.
+Average marks: 80.0
+```
 
-**Execution result:** Record the observed missing-value and duplicate counts from the test dataset.
+### Verification
+
+There should be one missing value in the `marks` column. The average should be calculated from 80, 90 and 70:
+
+Average = (80 + 90 + 70) / 3 = 80.
+
+The missing value is excluded from the mean calculation; it is not replaced with zero.
+
+### Learning Outcome
+
+This exercise demonstrates data-frame creation, missing-value detection, basic data cleaning and descriptive statistics. It highlights why missing values must be handled carefully before analysis.
 
 ---
 
-## Exercise 4: Machine Learning — Model Evaluation
+## Exercise 4: Machine Learning — Train-Test Split and Model Evaluation
 
 ### Objective
 
-Use AI to understand why machine-learning models should be evaluated on data that was not used for training.
+To understand how a dataset is divided into training and testing sets and how a simple regression model is evaluated.
 
-### Prompt
+### Prompt Used
 
-"Explain the difference between training accuracy and test accuracy in a classification problem. Describe how overfitting can occur and give an example of how a student can evaluate a model using a train-test split. Explain why accuracy alone may be insufficient for imbalanced datasets."
+"Provide a simple Python example using scikit-learn to split a small numerical dataset into training and testing sets, fit a linear regression model, make predictions, and calculate mean absolute error."
 
-### Expected AI output
+### Python Code
 
-The AI should explain the purpose of separating training and test data, describe overfitting, and discuss evaluation measures such as precision, recall and F1-score.
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error
 
-### Verification method
+X = [[1], [2], [3], [4], [5], [6]]
+y = [2, 4, 6, 8, 10, 12]
 
-- Compare the explanation with the concepts covered in the Machine Learning syllabus or a trusted machine-learning reference.
-- Use a small classification example.
-- Check that training and test data are separated correctly.
-- Calculate or inspect evaluation measures using the chosen dataset.
-- Confirm that the interpretation matches the observed results.
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.33, random_state=42
+)
 
-### Learning outcome
+model = LinearRegression()
+model.fit(X_train, y_train)
 
-The exercise demonstrates model validation, overfitting awareness and appropriate evaluation.
+predictions = model.predict(X_test)
+mae = mean_absolute_error(y_test, predictions)
 
-**Execution result:** Record the dataset, evaluation measures and observed results after completing the exercise.
+print("Actual values:", y_test)
+print("Predicted values:", predictions)
+print("Mean Absolute Error:", mae)
+```
+
+### Expected Result
+
+The dataset follows the relationship \(y = 2x\). A linear regression model should learn a slope close to 2 and make predictions close to the actual test values. The mean absolute error should be close to zero for this dataset.
+
+The exact printed values depend on the selected training and testing rows and the model's fitted parameters. The code should be run to record the actual output.
+
+### Verification
+
+Check that the training and testing sets are separate, the model is fitted only on the training set, and predictions are evaluated against the test labels. Confirm that the mean absolute error is calculated from the differences between actual and predicted values.
+
+### Learning Outcome
+
+This exercise demonstrates supervised learning, regression, data splitting, prediction and model evaluation. It also reinforces the importance of evaluating a model on data not used to fit it.
 
 ---
 
-## Exercise 5: Generative AI — Retrieval-Augmented Generation
+## Exercise 5: Artificial Intelligence — Rule-Based Classification
 
 ### Objective
 
-Use AI to understand how a document-question-answering application can reduce unsupported answers by grounding responses in retrieved information.
+To create a basic rule-based classifier that categorises a text message as positive, negative or neutral using simple word matching.
 
-### Prompt
+### Prompt Used
 
-"Explain a simple retrieval-augmented generation (RAG) workflow for answering questions from a collection of documents. Describe document preparation, retrieval, context selection, answer generation and evaluation. Include test cases for an answerable question, a question with missing information and an unrelated question."
+"Write a beginner-friendly Python program that classifies a sentence as positive, negative or neutral using lists of positive and negative words. Include example sentences and explain the limitations."
 
-### Expected AI output
+### Python Code
 
-The AI should describe a workflow in which relevant document passages are retrieved and supplied to a language model as context. It should also explain that retrieval does not guarantee correctness and that answers must be evaluated.
+```python
+positive_words = ["good", "great", "excellent", "happy"]
+negative_words = ["bad", "poor", "terrible", "sad"]
 
-### Verification method
 
-- Create a small collection of documents containing known facts.
-- Test a question whose answer is explicitly present in the documents.
-- Test a question whose answer is absent.
-- Test an unrelated question.
-- Compare the generated answers with the source documents.
-- Record unsupported statements, retrieval failures and cases where the system should acknowledge insufficient information.
+def classify_sentiment(sentence):
+    words = sentence.lower().split()
 
-### Learning outcome
+    positive_count = sum(
+        1 for word in words if word.strip(".,!?") in positive_words
+    )
+    negative_count = sum(
+        1 for word in words if word.strip(".,!?") in negative_words
+    )
 
-The exercise demonstrates retrieval-based AI, source-grounded answers, testing and responsible evaluation of language-model outputs.
+    if positive_count > negative_count:
+        return "Positive"
+    elif negative_count > positive_count:
+        return "Negative"
+    else:
+        return "Neutral"
 
-**Execution result:** Record the actual outputs and verification findings after running the tests.
+
+examples = [
+    "The service was excellent",
+    "The experience was bad",
+    "The class starts today"
+]
+
+for sentence in examples:
+    print(sentence, "->", classify_sentiment(sentence))
+```
+
+### Expected Output
+
+```text
+The service was excellent -> Positive
+The experience was bad -> Negative
+The class starts today -> Neutral
+```
+
+### Verification
+
+Check that a sentence containing a positive word is classified as positive, a sentence containing a negative word is classified as negative, and a sentence containing neither is classified as neutral.
+
+### Limitations
+
+This is a simple rule-based demonstration, not a trained machine-learning model. It may fail to understand negation, sarcasm, context, spelling variations and words that have different meanings in different situations.
+
+### Learning Outcome
+
+This exercise demonstrates text preprocessing, simple classification rules, conditional logic and the limitations of basic AI systems.
 
 ---
 
-## 3. AI Use and Human Verification
+## 2. Overall Findings
 
-AI was used as an assistant for generating explanations, suggesting code and structuring technical exercises. The generated material should not be treated as automatically correct.
+The five exercises demonstrate how AI assistance can support learning across programming, databases, data analytics, machine learning and artificial intelligence.
 
-Verification involves running code where applicable, checking calculations, examining source data, comparing explanations with course concepts and testing edge cases.
+| Subject | Main concept | Verification approach |
+|---|---|---|
+| Computer Programming | Python data validation | Check valid and invalid lists |
+| Database Management Systems | JOIN and aggregation | Manually verify totals |
+| Data Analytics | Missing values and mean | Count missing entries and calculate the average |
+| Machine Learning | Regression and evaluation | Inspect predictions and mean absolute error |
+| Artificial Intelligence | Rule-based text classification | Compare classifications with the rules |
 
-The final record should identify errors or limitations found during verification and explain how they were addressed. AI-generated content must not be presented as experimentally validated unless the relevant tests were actually performed.
+## 3. Responsible Use of AI
 
-## 4. Conclusion
+AI-generated code and explanations should be treated as starting points, not automatically correct answers. Each exercise should be checked against its stated objective and expected behaviour. Actual execution results, tool details and verification outcomes should be recorded separately in `ai_use_log.md` after completing the relevant checks.
 
-These exercises demonstrate how AI assistance can support learning across programming, databases, data science, machine learning and Generative AI.
-
-The approach combines AI-generated suggestions with independent verification. This encourages critical thinking, reproducible work and responsible use of AI tools in academic and professional settings.
+These examples are educational demonstrations using small synthetic datasets. They are not evidence of production-system performance or of improvements to the university's actual processes.
