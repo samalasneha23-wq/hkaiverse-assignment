@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-**CampusFlow** is a proposed workflow-management solution designed to simplify the college clearance process, including hostel vacating and no-dues approvals. It brings multiple departmental clearance steps into one organised workflow, helping students track progress and helping authorised staff manage pending requests.
+**HostelClear** is a proposed workflow-management solution designed to simplify the college clearance process, including hostel vacating and no-dues approvals. It brings multiple departmental clearance steps into one organised workflow, helping students track progress and helping authorised staff manage pending requests.
 
 ## 2. Problem Statement
 
