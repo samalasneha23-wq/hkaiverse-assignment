@@ -113,3 +113,8 @@ The documentation distinguishes proposed designs from verified information and i
 ## Repository
 
 [View the HKAIverse  Assessment repository](https://github.com/samalasneha23-wq/hkaiverse-assignment)
+
+## Submission Links
+
+- **GitHub Release:** https://github.com/samalasneha23-wq/hkaiverse-assignment/releases/tag/v1.0.0
+- **Final Commit:** https://github.com/samalasneha23-wq/hkaiverse-assignment/commit/67fe6200e9264b049e75d181a0cb5b52f48d966d
