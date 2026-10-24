@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusFlow | Curriculum Comparison Tool</title>
+<style>
+:root {
+  --navy: #183153;
+  --blue: #3267b2;
+  --bg: #f4f7fb;
+  --border: #dce4ef;
+  --text: #243247;
+  --muted: #68778b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+header {
+  background: linear-gradient(120deg, #183153, #3267b2);
+  color: white;
+  padding: 30px 22px;
+}
+header h1 { margin: 0 0 7px; font-size: 27px; }
+header p { margin: 0; color: #e1eaf8; }
+main { max-width: 1100px; margin: 25px auto; padding: 0 16px 35px; }
+.panel {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+h2 { color: var(--navy); font-size: 19px; margin-top: 0; }
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; }
+input, select {
+  width: 100%; padding: 10px; border: 1px solid #cbd5e1;
+  border-radius: 7px; background: white; color: var(--text);
+}
+.cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px; margin-bottom: 18px;
+}
+.metric {
+  background: white; padding: 17px; border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.metric span { color: var(--muted); font-size: 13px; display: block; }
+.metric strong { font-size: 25px; color: var(--navy); }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--border); }
+th { background: #edf3fb; color: var(--navy); }
+.status {
+  display: inline-block; padding: 3px 8px; border-radius: 20px;
+  background: #e8efff; color: #234e91; font-size: 12px; font-weight: bold;
+}
+button {
+  background: var(--blue); color: white; border: 0; border-radius: 7px;
+  padding: 10px 14px; cursor: pointer; font-weight: bold;
+}
+button.secondary { background: #e8edf5; color: var(--navy); }
+button:hover { opacity: .9; }
+.actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 15px; }
+.note { color: var(--muted); font-size: 13px; }
+footer { text-align: center; color: var(--muted); padding: 20px; font-size: 13px; }
+@media (max-width: 600px) {
+  header h1 { font-size: 22px; }
+  .panel { padding: 14px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Curriculum Comparison Tool</h1>
+  <p>Explore course recommendations, compare credits, and model proposed changes.</p>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Course Filters</h2>
+    <div class="controls">
+      <div>
+        <label for="search">Search course</label>
+        <input id="search" placeholder="Enter course name or code">
+      </div>
+      <div>
+        <label for="semester">Semester</label>
+        <select id="semester">
+          <option value="all">All semesters</option>
+          <option value="1">Semester I</option>
+          <option value="2">Semester II</option>
+          <option value="3">Semester III</option>
+          <option value="4">Semester IV</option>
+          <option value="5">Semester V</option>
+          <option value="6">Semester VI</option>
+          <option value="7">Semester VII</option>
+          <option value="8">Semester VIII</option>
+        </select>
+      </div>
+      <div>
+        <label for="category">Recommendation</label>
+        <select id="category">
+          <option value="all">All recommendations</option>
+          <option value="KEEP">Keep</option>
+          <option value="UPDATE">Update</option>
+          <option value="REDUCE">Reduce</option>
+          <option value="ADD">Add</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="metric"><span>Displayed courses</span><strong id="count">0</strong></div>
+    <div class="metric"><span>Displayed credits</span><strong id="credits">0</strong></div>
+    <div class="metric"><span>Selected courses</span><strong id="selectedCount">0</strong></div>
+    <div class="metric"><span>Selected credits</span><strong id="selectedCredits">0</strong></div>
+  </section>
+
+  <section class="panel">
+    <h2>Course Comparison</h2>
+    <p class="note">The initial records below are examples to demonstrate the tool. Replace them with verified courses, credits, and recommendations from your applicable programme curriculum before submission.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Select</th><th>Semester</th><th>Course</th><th>Credits</th><th>Recommendation</th><th>Rationale</th>
+          </tr>
+        </thead>
+        <tbody id="courseRows"></tbody>
+      </table>
+    </div>
+    <div class="actions">
+      <button id="selectVisible">Select visible</button>
+      <button class="secondary" id="clearSelected">Clear selection</button>
+      <button class="secondary" id="exportCsv">Export visible CSV</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Proposed Credit Calculator</h2>
+    <div class="controls">
+      <div>
+        <label for="totalCredits">Verified current programme credits</label>
+        <input id="totalCredits" type="number" min="1" placeholder="Enter official total">
+      </div>
+      <div>
+        <label for="changedCredits">Credits affected by proposed changes</label>
+        <input id="changedCredits" type="number" min="0" value="0">
+      </div>
+    </div>
+    <p><strong>Percentage of programme credits affected:</strong> <span id="percentage">Enter the official total to calculate.</span></p>
+    <p class="note">Count each affected credit only once. Updates that do not change credit allocation should be distinguished from credits added, removed, or reallocated. Confirm that the total remains balanced and meets applicable regulations.</p>
+  </section>
+</main>
+
+<footer>CampusFlow | Curriculum Audit and Redesign</footer>
+
+<script>
+const courses = [
+  {id:1, semester:3, code:"CS206", name:"Database Management Systems", credits:4, decision:"UPDATE", rationale:"Add practical SQL querying, data quality checks, and database design exercises."},
+  {id:2, semester:4, code:"DS203", name:"Data Science", credits:3, decision:"KEEP", rationale:"Supports data analysis, interpretation, and evidence-based decisions."},
+  {id:3, semester:5, code:"DS305", name:"Data Wrangling and Visualization", credits:3, decision:"UPDATE", rationale:"Include realistic data cleaning, dashboard design, and clear communication of findings."},
+  {id:4, semester:5, code:"DS310", name:"Predictive Analytics", credits:3, decision:"UPDATE", rationale:"Emphasise evaluation, validation, and explaining model limitations."},
+  {id:5, semester:6, code:"DS307", name:"Big Data Systems", credits:3, decision:"KEEP", rationale:"Provides foundations for working with larger datasets and data-processing pipelines."},
+  {id:6, semester:7, code:"DS306", name:"Deep Learning", credits:4, decision:"UPDATE", rationale:"Add reproducible experiments, evaluation, and responsible model use."},
+  {id:7, semester:7, code:"DS311", name:"Natural Language Processing", credits:3, decision:"UPDATE", rationale:"Include language-model evaluation, error analysis, and application limitations."},
+  {id:8, semester:7, code:"DS401", name:"Human Computer Interaction", credits:3, decision:"KEEP", rationale:"Supports usability, user research, accessibility, and interface evaluation."},
+  {id:9, semester:7, code:"DS408", name:"Generative AI", credits:3, decision:"UPDATE", rationale:"Include retrieval-based applications, output verification, and data privacy."},
+  {id:10, semester:8, code:"PROPOSED", name:"Applied Analytics and Dashboard Lab", credits:0, decision:"ADD", rationale:"Proposed practical lab; credit allocation requires curriculum and regulation review."}
+];
+
+const selected = new Set();
+const tbody = document.getElementById("courseRows");
+const el = id => document.getElementById(id);
+
+function visibleCourses() {
+  const q = el("search").value.toLowerCase().trim();
+  const sem = el("semester").value;
+  const decision = el("category").value;
+  return courses.filter(c =>
+    (sem === "all" || String(c.semester) === sem) &&
+    (decision === "all" || c.decision === decision) &&
+    (!q || (c.name + " " + c.code).toLowerCase().includes(q))
+  );
+}
+
+function render() {
+  const rows = visibleCourses();
+  tbody.innerHTML = "";
+  rows.forEach(c => {
+    const tr = document.createElement("tr");
+    const tdCheck = document.createElement("td");
+    const check = document.createElement("input");
+    check.type = "checkbox";
+    check.checked = selected.has(c.id);
+    check.setAttribute("aria-label", "Select " + c.name);
+    check.style.width = "auto";
+    check.addEventListener("change", () => {
+      check.checked ? selected.add(c.id) : selected.delete(c.id);
+      updateMetrics();
+    });
+    tdCheck.appendChild(check);
+    tr.appendChild(tdCheck);
+
+    [ "Semester " + ["I","II","III","IV","V","VI","VII","VIII"][c.semester-1],
+      c.code + " — " + c.name, c.credits ].forEach(value => {
+      const td = document.createElement("td");
+      td.textContent = value;
+      tr.appendChild(td);
+    });
+
+    const tdDecision = document.createElement("td");
+    const badge = document.createElement("span");
+    badge.className = "status";
+    badge.textContent = c.decision;
+    tdDecision.appendChild(badge);
+    tr.appendChild(tdDecision);
+
+    const tdRationale = document.createElement("td");
+    tdRationale.textContent = c.rationale;
+    tr.appendChild(tdRationale);
+    tbody.appendChild(tr);
+  });
+
+  el("count").textContent = rows.length;
+  el("credits").textContent = rows.reduce((s,c) => s + c.credits, 0);
+  updateMetrics();
+}
+
+function updateMetrics() {
+  const chosen = courses.filter(c => selected.has(c.id));
+  el("selectedCount").textContent = chosen.length;
+  el("selectedCredits").textContent = chosen.reduce((s,c) => s + c.credits, 0);
+}
+
+["search","semester","category"].forEach(id => el(id).addEventListener("input", render));
+
+el("selectVisible").addEventListener("click", () => {
+  visibleCourses().forEach(c => selected.add(c.id));
+  render();
+});
+el("clearSelected").addEventListener("click", () => {
+  selected.clear();
+  render();
+});
+
+function updatePercentage() {
+  const total = Number(el("totalCredits").value);
+  const affected = Number(el("changedCredits").value);
+  if (!total || total <= 0 || affected < 0) {
+    el("percentage").textContent = "Enter valid credit values.";
+    return;
+  }
+  el("percentage").textContent = (affected / total * 100).toFixed(2) + "%";
+}
+el("totalCredits").addEventListener("input", updatePercentage);
+el("changedCredits").addEventListener("input", updatePercentage);
+
+el("exportCsv").addEventListener("click", () => {
+  const rows = visibleCourses();
+  const escapeCsv = value => '"' + String(value).replace(/"/g, '""') + '"';
+  const csv = [
+    ["Semester","Course Code","Course Name","Credits","Recommendation","Rationale"],
+    ...rows.map(c => [c.semester,c.code,c.name,c.credits,c.decision,c.rationale])
+  ].map(row => row.map(escapeCsv).join(",")).join("\r\n");
+  const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "course_comparison.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+render();
+</script>
+</body>
+</html>
